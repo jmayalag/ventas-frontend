@@ -11,7 +11,7 @@
       restrict: 'E',
       templateUrl: 'app/components/datatable/datatable.html',
       scope: {
-          dataobj: '='
+          serviceName: '@'
       },
       controller: DataTableController,
       controllerAs: 'vm',
@@ -21,11 +21,10 @@
     return directive;
 
     /** @ngInject */
-    function DataTableController(moment) {
+    function DataTableController($injector) {
       var vm = this;
-      vm.message = 'Hola Mundo';
-      // "vm.creation" is avaible by directive option "bindToController: true"
-      //vm.relativeDate = moment(vm.creationDate).fromNow();
+      var service = $injector.get(vm.serviceName);
+      vm.data = service.get();
     }
   }
 
