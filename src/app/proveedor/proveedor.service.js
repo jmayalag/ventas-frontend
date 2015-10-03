@@ -7,7 +7,7 @@
 
   /** @ngInject */
   function Proveedor($log, $resource) {
-    var apiHost = 'http://jsonplaceholder.typicode.com';
-    return $resource(apiHost + '/users/:id');
+    var apiHost = 'http://localhost:8080/tareaweb2/rest';
+    return $resource(apiHost + '/proveedores/:id');
   }
 })();
