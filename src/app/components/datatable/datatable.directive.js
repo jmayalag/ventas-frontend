@@ -12,7 +12,7 @@
       templateUrl: 'app/components/datatable/datatable.html',
       scope: {
         options: '=',
-        serviceName: '@'
+        serviceName: '@',
       },
       controller: DataTableController,
       controllerAs: 'vm',
@@ -27,10 +27,11 @@
       var service = $injector.get(vm.serviceName);
       var o = vm.options;
       var sort = {field: 'id', desc: false};
+      vm.item_click = o.item_click;
 
       var pageRestart = function () {
         vm.current_page = 1;
-      }
+      };
 
       var getData = function () {
         vm.queryParams.page = vm.current_page;
@@ -52,29 +53,34 @@
           return pages;
         },
         changePage: function (newPage) {
-          if (newPage == vm.current_page) return;
+          if (newPage === vm.current_page) {
+            return;
+          }
           vm.current_page = newPage;
           getData();
         },
         prev: function () {
-          if (vm.current_page > 1)
+          if (vm.current_page > 1) {
             this.changePage(vm.current_page - 1);
+          }
         },
         next: function () {
-          if (vm.current_page < vm.pages)
+          if (vm.current_page < vm.pages) {
             this.changePage(vm.current_page + 1);
+          }
         }
       };
 
       vm.sorting = {
         icon: function (field) {
-          if (field == sort.field)
+          if (field === sort.field) {
             return sort.desc ? 'glyphicon glyphicon-chevron-down' : 'glyphicon glyphicon-chevron-up';
+          }
           return 'glyphicon glyphicon-sort';
         },
         sortColumn: function (field) {
           console.log('Orden: ' + field);
-          if (field != sort.field) {
+          if (field !== sort.field) {
             delete vm.queryParams[sort.field]; // eliminamos el orden anterior
             sort.field = field;
             sort.desc = false;
@@ -91,9 +97,13 @@
         searchFields: {},
         filter: function () {
           console.log("Filtering");
-          for (var k in this.searchFields)
-            if (!this.searchFields[k]) delete vm.queryParams[k];
-            else vm.queryParams[k] = this.searchFields[k];
+          for (var k in this.searchFields) {
+            if (!this.searchFields[k]) {
+              delete vm.queryParams[k];
+            } else {
+              vm.queryParams[k] = this.searchFields[k];
+            }
+          }
           pageRestart();
           getData();
         }

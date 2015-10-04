@@ -16,6 +16,10 @@
         templateUrl: 'app/proveedor/proveedor.html',
         controller: 'ProveedorController'
       })
+      .when('/proveedores/:id', {
+        templateUrl: 'app/proveedor/detail/detail.html',
+        controller: 'ProveedorDetailController'
+      })
       .otherwise({
         redirectTo: '/'
       });

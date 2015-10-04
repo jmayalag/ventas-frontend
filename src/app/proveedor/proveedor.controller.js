@@ -4,7 +4,7 @@
   angular.module('ventas').controller('ProveedorController', ProveedorController);
 
   /** @ngInject */
-  function ProveedorController($scope, Proveedor) {
+  function ProveedorController($scope, $location, Proveedor) {
     //$scope.proveedores = [
     //  {id: 1, nombre: 'Jordan', ci: '4058908'},
     //  {id: 2, nombre: 'Alma', ci: '4058908'}
@@ -18,7 +18,11 @@
         ruc: 'RUC',
         email: 'Email'
       },
-      data_prop: 'listado'
+      data_prop: 'listado',
+      item_click: function (proveedor) {
+        var path = '/proveedores/' + proveedor.id;
+        $location.path(path);
+      }
     };
 
     $scope.crear = function () {

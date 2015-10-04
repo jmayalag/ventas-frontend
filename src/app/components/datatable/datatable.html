@@ -21,7 +21,7 @@
   </thead>
   <tbody>
   <tr ng-repeat="item in vm.items">
-    <td ng-repeat="(key, _) in vm.options.column_defs">{{item[key]}}</td>
+    <td ng-repeat="(key, _) in vm.options.column_defs" ng-dblclick="vm.item_click(item)">{{item[key]}}</td>
   </tr>
   </tbody>
 </table>
