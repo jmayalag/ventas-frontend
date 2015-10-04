@@ -3,7 +3,7 @@
   <thead>
   <tr>
     <th ng-repeat="(key, value) in vm.options.column_defs">
-      <a ng-click="sortColumn(key)" class="md-subhead">{{value}} <span ng-class="sortIcon(key)" aria-hidden="true"></span></a>
+      <a ng-click="vm.sorting.sortColumn(key)" class="md-subhead">{{value}} <span ng-class="vm.sorting.icon(key)" aria-hidden="true"></span></a>
     </th>
   </tr>
   </thead>

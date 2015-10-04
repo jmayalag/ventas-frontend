@@ -26,6 +26,7 @@
       var vm = this;
       var service = $injector.get(vm.serviceName);
       var o = vm.options;
+      var sort = {field: 'id', desc: false};
 
       var pageRestart = function () {
         vm.current_page = 1;
@@ -62,6 +63,27 @@
         next: function () {
           if (vm.current_page < vm.pages)
             this.changePage(vm.current_page + 1);
+        }
+      };
+
+      vm.sorting = {
+        icon: function (field) {
+          if (field == sort.field)
+            return sort.desc ? 'glyphicon glyphicon-chevron-down' : 'glyphicon glyphicon-chevron-up';
+          return 'glyphicon glyphicon-sort';
+        },
+        sortColumn: function (field) {
+          console.log('Orden: ' + field);
+          if (field != sort.field) {
+            delete vm.queryParams[sort.field]; // eliminamos el orden anterior
+            sort.field = field;
+            sort.desc = false;
+          } else {
+            sort.desc = !sort.desc;
+          }
+          vm.queryParams[field] = sort.desc ? 'desc' : 'asc';
+          pageRestart();
+          getData();
         }
       };
 

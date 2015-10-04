@@ -8,6 +8,6 @@
   /** @ngInject */
   function Proveedor($log, $resource) {
     var apiHost = 'http://localhost:8080/tareaweb2/rest';
-    return $resource(apiHost + '/proveedores/:id');
+    return $resource(apiHost + '/proveedores');
   }
 })();
