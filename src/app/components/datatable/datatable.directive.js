@@ -45,26 +45,24 @@
         });
       };
 
-      vm.getPages = function () {
-        var pages = new Array(vm.pages);
-        return pages;
-      };
-
-      vm.prevPage = function () {
-        console.log("prev");
-        if (vm.current_page > 1)
-          vm.changePage(vm.current_page - 1);
-      };
-
-      vm.nextPage = function () {
-        if (vm.current_page < vm.pages)
-          vm.changePage(vm.current_page + 1);
-      };
-
-      vm.changePage = function (newPage) {
-        if (newPage == vm.current_page) return;
-        vm.current_page = newPage;
-        getData();
+      vm.pagination = {
+        getPages: function () {
+          var pages = new Array(vm.pages);
+          return pages;
+        },
+        changePage: function (newPage) {
+          if (newPage == vm.current_page) return;
+          vm.current_page = newPage;
+          getData();
+        },
+        prev: function () {
+          if (vm.current_page > 1)
+            this.changePage(vm.current_page - 1);
+        },
+        next: function () {
+          if (vm.current_page < vm.pages)
+            this.changePage(vm.current_page + 1);
+        }
       };
 
       var init = function () {
@@ -77,4 +75,5 @@
     }
   }
 
-})();
+})
+();

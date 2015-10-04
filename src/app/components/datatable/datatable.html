@@ -3,7 +3,7 @@
   <thead>
   <tr>
     <th ng-repeat="(key, value) in vm.options.column_defs">
-      {{value}}
+      <a ng-click="sortColumn(key)" class="md-subhead">{{value}} <span ng-class="sortIcon(key)" aria-hidden="true"></span></a>
     </th>
   </tr>
   </thead>
@@ -17,16 +17,16 @@
 <nav>
   <ul class="pagination">
     <li ng-class="{disabled: vm.current_page == 1}">
-      <a href ng-click="vm.prevPage()" aria-label="Previous">
+      <a href ng-click="vm.pagination.prev()" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
       </a>
     </li>
 
-    <li ng-repeat="p in vm.getPages() track by $index" ng-class="{active: vm.current_page == $index+1}">
-      <a href ng-click="vm.changePage($index+1)">{{$index+1}}</a>
+    <li ng-repeat="p in vm.pagination.getPages() track by $index" ng-class="{active: vm.current_page == $index+1}">
+      <a href ng-click="vm.pagination.changePage($index+1)">{{$index+1}}</a>
     </li>
     <li ng-class="{disabled: vm.current_page == vm.pages}">
-      <a href ng-click="vm.nextPage()" aria-label="Next">
+      <a href ng-click="vm.pagination.next()" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
       </a>
     </li>
