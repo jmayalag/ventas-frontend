@@ -87,6 +87,26 @@
         }
       };
 
+      vm.filtering = {
+        searchFields: {},
+        filter: function () {
+          console.log("Filtering");
+          for (var k in this.searchFields)
+            if (!this.searchFields[k]) delete vm.queryParams[k];
+            else vm.queryParams[k] = this.searchFields[k];
+          pageRestart();
+          getData();
+        }
+      };
+
+      vm.reset = function () {
+        sort = {field: 'id', desc: false};
+        vm.filtering.searchFields = {};
+        vm.queryParams = {};
+        pageRestart();
+        getData();
+      };
+
       var init = function () {
         vm.queryParams = {};
         pageRestart();

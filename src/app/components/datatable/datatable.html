@@ -1,9 +1,21 @@
 {{vm.current_page}}
+
+<md-input-container flex>
+  <label>Escriba una palabra a buscar</label>
+  <input ng-focus="searchFields = {pages: 1}" ng-model="vm.filtering.searchFields['by_all_attributes']" ng-keypress="">
+</md-input-container>
+
+<div class="btn-group btn-group-sm" role="group">
+  <md-button ng-click="vm.filtering.filter()" class="md-raised md-primary">Filtrar</md-button>
+  <md-button ng-click="vm.reset()" class="md-raised">Resetear</md-button>
+</div>
+
 <table class="table table-hover">
   <thead>
   <tr>
     <th ng-repeat="(key, value) in vm.options.column_defs">
       <a ng-click="vm.sorting.sortColumn(key)" class="md-subhead">{{value}} <span ng-class="vm.sorting.icon(key)" aria-hidden="true"></span></a>
+      <input ng-hide="vm.filtering.searchFields['by_all_attributes']!=null && vm.filtering.searchFields['by_all_attributes']!=''" class="form-control" ng-model="vm.filtering.searchFields['by_' + key]"/>
     </th>
   </tr>
   </thead>
