@@ -24,6 +24,10 @@
         templateUrl: 'app/proveedor/detail/detail.html',
         controller: 'ProveedorDetailController'
       })
+      .when('/proveedores/:id/update', {
+        templateUrl: 'app/proveedor/form/form.html',
+        controller: 'ProveedorFormEditController'
+      })
       //.otherwise({
       //  redirectTo: '/'
       //})

@@ -5,12 +5,13 @@
 
   /** @ngInject */
   function ProveedorDetailController($scope, $routeParams, Proveedor) {
-    $scope.id = $routeParams.id;
-    $scope.proveedor = Proveedor.get({prov_id: $scope.id});
+    var id = $routeParams.id;
+    $scope.proveedor = Proveedor.get({prov_id: id});
 
     $scope.detail_options = {
       title_field: 'nombre',
-      previous: '/proveedores'
+      previous: '/proveedores',
+      editPath: '/proveedores/' + id + '/update'
     };
   }
 })();

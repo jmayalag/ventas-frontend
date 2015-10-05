@@ -22,24 +22,50 @@
     return directive;
 
     /** @ngInject */
-    function CustomFormController() {
+    function CustomFormController($location) {
       var vm = this;
       var o = vm.options;
+      var successUrl = function (id) {
+        return o.successPrefix + id;
+      };
 
       vm.title = o.title;
       vm.fields = o.fields;
       vm.previous = o.previous;
-      if (!vm.item) {
-        vm.item = {}
-        angular.forEach(vm.fields, function (v, k) {
-          vm.item[k] = '';
-        });
-      }
-      console.log(vm.item);
 
-      vm.persist = function () {
-        o.saveItem(vm.item);
+      if (!vm.item) {
+        vm.item = {};
+      }
+
+      vm.cancel = o.cancel ? o.cancel : function () {
+        $location.path(vm.previous); //sin callback
       };
+
+      if (o.saveItem) {
+        vm.persist = function () { //callback
+          o.saveItem(vm.object);
+        };
+      } else { //sin callback
+        if (!o.edit) { //si es creacion
+          vm.persist = function () {
+            vm.item.$save(function (data) {
+              console.log("Guardado");
+              $location.path(successUrl(data.id));
+            }, function (err) {
+              console.log("Error al guardar");
+            })
+          }
+        } else {
+          vm.persist = function () {
+            vm.item.$update(function (data) {
+              console.log("Updated");
+              $location.path(successUrl(data.id));
+            }, function (err) {
+              console.log("Error update");
+            })
+          }
+        }
+      }
     }
   }
 

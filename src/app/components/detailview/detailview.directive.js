@@ -26,15 +26,17 @@
       var vm = this;
       var o = vm.options;
       var deleteItem = o.deleteItem;
+
+      //console.log(o);
       var setOptions = function () {
         if (!o) {
           o = {};
         }
-        if (o.previous) {
-          vm.previous = o.previous;
-        } else {
-          vm.previous = '/';
+        if (o.editPath) {
+          vm.editPath = o.editPath;
         }
+        vm.previous = o.previous ? o.previous : '/';
+
         if (o.title_field) {
           vm.item.$promise.then(function (data) {
             vm.title = data[o.title_field];

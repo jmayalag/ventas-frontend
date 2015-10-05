@@ -110,15 +110,17 @@
       };
 
       vm.reset = function () {
-        sort = {field: 'id', desc: false};
-        vm.filtering.searchFields = {};
-        vm.queryParams = {};
-        pageRestart();
-        getData();
+        //sort = {field: 'id', desc: false};
+        //vm.queryParams = {id: 'asc'};
+        //vm.filtering.searchFields = {};
+        //vm.queryParams = {};
+        //pageRestart();
+        //getData();
+        init();
       };
 
       var init = function () {
-        vm.queryParams = {};
+        vm.queryParams = {id: 'asc'};
         pageRestart();
         getData();
       };
