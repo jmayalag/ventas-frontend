@@ -28,6 +28,10 @@
         templateUrl: 'app/proveedor/form/form.html',
         controller: 'ProveedorFormEditController'
       })
+      .when('/productos/', {
+        templateUrl: 'app/producto/producto.html',
+        controller: 'ProductoController'
+      })
       //.otherwise({
       //  redirectTo: '/'
       //})
