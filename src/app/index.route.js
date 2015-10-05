@@ -32,6 +32,10 @@
         templateUrl: 'app/producto/producto.html',
         controller: 'ProductoController'
       })
+      .when('/productos/:id', {
+        templateUrl: 'app/producto/detail/detail.html',
+        controller: 'ProductoDetailController'
+      })
       //.otherwise({
       //  redirectTo: '/'
       //})
