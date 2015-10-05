@@ -32,9 +32,17 @@
         templateUrl: 'app/producto/producto.html',
         controller: 'ProductoController'
       })
+      .when('/productos/create', {
+        templateUrl: 'app/producto/form/form.html',
+        controller: 'ProductoFormController'
+      })
       .when('/productos/:id', {
         templateUrl: 'app/producto/detail/detail.html',
         controller: 'ProductoDetailController'
+      })
+      .when('/productos/:id/update', {
+        templateUrl: 'app/producto/form/form.html',
+        controller: 'ProductoFormEditController'
       })
       //.otherwise({
       //  redirectTo: '/'
