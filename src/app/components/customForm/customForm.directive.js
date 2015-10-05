@@ -38,7 +38,7 @@
       }
 
       vm.cancel = o.cancel ? o.cancel : function () {
-        $location.path(vm.previous); //sin callback
+        $location.path(vm.previous).replace(); //sin callback
       };
 
       if (o.saveItem) {

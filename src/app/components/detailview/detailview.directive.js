@@ -35,7 +35,14 @@
         if (o.editPath) {
           vm.editPath = o.editPath;
         }
+
         vm.previous = o.previous ? o.previous : '/';
+        vm.cancel = o.cancel ? o.cancel : function () {
+          $location.path(vm.previous).replace(); //sin callback
+        };
+        vm.edit = o.edit ? o.edit : function () {
+          $location.path(vm.editPath).replace();
+        };
 
         if (o.title_field) {
           vm.item.$promise.then(function (data) {
