@@ -30,7 +30,7 @@
         if (!o) {
           o = {};
         }
-        if (o.previous){
+        if (o.previous) {
           vm.previous = o.previous;
         } else {
           vm.previous = '/';
@@ -53,10 +53,9 @@
               vm.fields[k] = k.replace(/\w\S*/g, function (txt) {
                 return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
               });
-              ;
             });
-            delete vm.fields.$promise
-            delete vm.fields.$resolved
+            delete vm.fields.$promise;
+            delete vm.fields.$resolved;
           });
         }
       };
