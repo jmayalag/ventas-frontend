@@ -12,6 +12,24 @@
         controller: 'MainController',
         controllerAs: 'main'
       })
+
+      .when('/clientes', {
+        templateUrl: 'app/cliente/cliente.html',
+        controller: 'ClienteController'
+      })
+      .when('/clientes/create', {
+        templateUrl: 'app/cliente/form/form.html',
+        controller: 'ClienteFormController'
+      })
+      .when('/clientes/:id', {
+        templateUrl: 'app/cliente/detail/detail.html',
+        controller: 'ClienteDetailController'
+      })
+      .when('/clientes/:id/update', {
+        templateUrl: 'app/cliente/form/form.html',
+        controller: 'ClienteFormEditController'
+      })
+
       .when('/proveedores', {
         templateUrl: 'app/proveedor/proveedor.html',
         controller: 'ProveedorController'
