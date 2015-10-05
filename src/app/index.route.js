@@ -28,6 +28,7 @@
         templateUrl: 'app/proveedor/form/form.html',
         controller: 'ProveedorFormEditController'
       })
+
       .when('/productos/', {
         templateUrl: 'app/producto/producto.html',
         controller: 'ProductoController'
@@ -44,6 +45,7 @@
         templateUrl: 'app/producto/form/form.html',
         controller: 'ProductoFormEditController'
       })
+
       .when('/ventas/', {
         templateUrl: 'app/venta/venta.html',
         controller: 'VentaController'
@@ -59,6 +61,22 @@
       .when('/ventas/:id/update', {
         templateUrl: 'app/venta/form/form.html',
         controller: 'VentaFormEditController'
+      })
+      .when('/compras/', {
+        templateUrl: 'app/compra/compra.html',
+        controller: 'CompraController'
+      })
+      .when('/compras/create', {
+        templateUrl: 'app/compra/form/form.html',
+        controller: 'CompraFormController'
+      })
+      .when('/compras/:id', {
+        templateUrl: 'app/compra/detail/detail.html',
+        controller: 'CompraDetailController'
+      })
+      .when('/compras/:id/update', {
+        templateUrl: 'app/compra/form/form.html',
+        controller: 'CompraFormEditController'
       })
       //.otherwise({
       //  redirectTo: '/'
