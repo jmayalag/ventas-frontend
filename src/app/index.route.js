@@ -1,4 +1,4 @@
-(function() {
+(function () {
   'use strict';
 
   angular
@@ -16,13 +16,18 @@
         templateUrl: 'app/proveedor/proveedor.html',
         controller: 'ProveedorController'
       })
+      .when('/proveedores/create', {
+        templateUrl: 'app/proveedor/form/form.html',
+        controller: 'ProveedorFormController'
+      })
       .when('/proveedores/:id', {
         templateUrl: 'app/proveedor/detail/detail.html',
         controller: 'ProveedorDetailController'
       })
-      .otherwise({
-        redirectTo: '/'
-      });
+      //.otherwise({
+      //  redirectTo: '/'
+      //})
+    ;
   }
 
 })();

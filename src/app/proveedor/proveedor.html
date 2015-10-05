@@ -1,3 +1,6 @@
-<h1>Hello{{hello}}</h1>
-<button type="button" ng-click="crear()">Crear</button>
-<datatable options="options", service-name="Proveedor"></datatable>
+<h1>Proveedores
+  <md-button class="md-fab" aria-label="Crear Proveedor" ng-href="#/proveedores/create">
+    <md-icon md-svg-src="assets/icons/ic_add_white_24px.svg"></md-icon>
+  </md-button>
+</h1>
+<datatable options="options" service-name="Proveedor"></datatable>

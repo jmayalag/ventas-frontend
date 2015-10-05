@@ -25,14 +25,15 @@
       }
     };
 
-    $scope.crear = function () {
-      var proveedor = new Proveedor();
-      proveedor['nombre'] = 'Prueba';
-      proveedor['ruc'] = '3090';
-      proveedor['email'] = 'email@son.com';
-      proveedor['telefono'] = '49049';
-      console.log(proveedor);
-      Proveedor.save(proveedor);
-    };
+    //$scope.crear = function () {
+    //  $scope.creating = true;
+    //  //var proveedor = new Proveedor();
+    //  //proveedor['nombre'] = 'Prueba';
+    //  //proveedor['ruc'] = '3090';
+    //  //proveedor['email'] = 'email@son.com';
+    //  //proveedor['telefono'] = '49049';
+    //  //console.log(proveedor);
+    //  //Proveedor.save(proveedor);
+    //};
   }
 })();
