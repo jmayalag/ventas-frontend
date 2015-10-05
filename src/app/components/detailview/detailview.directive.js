@@ -22,7 +22,7 @@
     return directive;
 
     /** @ngInject */
-    function DetailViewController($location, $mdDialog) {
+    function DetailViewController($log, $location, $mdDialog) {
       var vm = this;
       var o = vm.options;
       var deleteItem = o.deleteItem;
@@ -80,13 +80,17 @@
           .ok('Eliminar').cancel('Cancelar');
 
         $mdDialog.show(confirm).then(function () {
-          console.log("borrando");
-          vm.item.$delete(function () {
-            console.log("Eliminado");
-            $location.path(vm.previous);
-          }, function () {
-            console.log("Fallo la eliminacion");
-          });
+          $log.debug("borrando");
+          if (deleteItem) {
+            deleteItem(vm.item);
+          } else {
+            vm.item.$delete(function () {
+              $log.info("Eliminado");
+              $location.path(vm.previous);
+            }, function () {
+              $log.error("Fallo la eliminacion");
+            });
+          }
         });
       };
     }

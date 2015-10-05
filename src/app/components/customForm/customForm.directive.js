@@ -22,7 +22,7 @@
     return directive;
 
     /** @ngInject */
-    function CustomFormController($location) {
+    function CustomFormController($log, $location) {
       var vm = this;
       var o = vm.options;
       var successUrl = function (id) {
@@ -49,21 +49,21 @@
         if (!o.edit) { //si es creacion
           vm.persist = function () {
             vm.item.$save(function (data) {
-              console.log("Guardado");
+              $log.info("Guardado");
               $location.path(successUrl(data.id));
             }, function (err) {
-              console.log("Error al guardar");
-            })
-          }
+              $log.error("Error al guardar");
+            });
+          };
         } else {
           vm.persist = function () {
             vm.item.$update(function (data) {
-              console.log("Updated");
+              $log.info("Updated");
               $location.path(successUrl(data.id));
             }, function (err) {
-              console.log("Error update");
-            })
-          }
+              $log.error("Error update");
+            });
+          };
         }
       }
     }

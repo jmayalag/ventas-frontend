@@ -22,7 +22,7 @@
     return directive;
 
     /** @ngInject */
-    function DataTableController($injector) {
+    function DataTableController($log, $injector, $mdDialog) {
       var vm = this;
       var service = $injector.get(vm.serviceName);
       var o = vm.options;
@@ -40,10 +40,17 @@
           vm.loading = false;
           vm.items = data[o.data_prop];
           vm.pages = data.meta.total_pages;
-          console.log("Datos obtenidos");
+          $log.info("Datos obtenidos");
         }, function () {
-          alert("No se pudo obtener datos del servidor.");
-          console.log("Fallo en obtener datos");
+          $mdDialog.show(
+            $mdDialog.alert()
+              .clickOutsideToClose(true)
+              .title('No se pudieron obtener los datos')
+              .content('Intente mas tarde.')
+              .ariaLabel('Alert Dialog Demo')
+              .ok('Ok')
+          );
+          $log.error("Fallo en obtener datos");
         });
       };
 
@@ -79,7 +86,7 @@
           return 'glyphicon glyphicon-sort';
         },
         sortColumn: function (field) {
-          console.log('Orden: ' + field);
+          $log.info('Orden: ' + field);
           if (field !== sort.field) {
             delete vm.queryParams[sort.field]; // eliminamos el orden anterior
             sort.field = field;
@@ -96,7 +103,7 @@
       vm.filtering = {
         searchFields: {},
         filter: function () {
-          console.log("Filtering");
+          $log.info("Filtering");
           for (var k in this.searchFields) {
             if (!this.searchFields[k]) {
               delete vm.queryParams[k];
