@@ -6,8 +6,8 @@
     .factory('Proveedor', Proveedor);
 
   /** @ngInject */
-  function Proveedor($log, $resource) {
+  function Proveedor($resource) {
     var apiHost = 'http://localhost:8080/tareaweb2/rest';
-    return $resource(apiHost + '/proveedores/:prov_id');
+    return $resource(apiHost + '/proveedores/:prov_id', {prov_id: '@id'});
   }
 })();

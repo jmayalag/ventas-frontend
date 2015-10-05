@@ -7,7 +7,7 @@
             <span>{{vm.title}}</span>
           </h2>
           <span flex></span>
-          <md-button class="md-icon-button" aria-label="More" ng-href="{{vm.previous}}">
+          <md-button class="md-icon-button" aria-label="More" ng-href="#{{vm.previous}}">
             <md-icon md-svg-icon="assets/icons/ic_close_white_24px.svg"></md-icon>
           </md-button>
         </div>
@@ -19,8 +19,9 @@
         </div>
       </md-card-content>
       <div class="md-actions" layout="row" layout-align="end center">
-        <md-button>Action 1</md-button>
-        <md-button>Action 2</md-button>
+        <md-button class="md-raised" ng-href="#{{vm.previous}}">Volver</md-button>
+        <md-button class="md-raised md-warn" ng-click="vm.deleteConfirm($event)">Eliminar</md-button>
+        <md-button class="md-raised md-primary" ng-click="vm.persist()">Editar</md-button>
       </div>
     </md-card>
   </md-content>

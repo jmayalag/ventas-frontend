@@ -10,7 +10,7 @@
 
     $scope.detail_options = {
       title_field: 'nombre',
-      previous: '#/proveedores'
+      previous: '/proveedores'
     };
   }
 })();

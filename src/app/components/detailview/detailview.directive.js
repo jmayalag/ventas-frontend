@@ -22,10 +22,10 @@
     return directive;
 
     /** @ngInject */
-    function DetailViewController() {
+    function DetailViewController($location, $mdDialog) {
       var vm = this;
       var o = vm.options;
-
+      var deleteItem = o.deleteItem;
       var setOptions = function () {
         if (!o) {
           o = {};
@@ -61,6 +61,25 @@
       };
 
       setOptions();
+
+      vm.deleteConfirm = function (ev) {
+        // Appending dialog to document.body to cover sidenav in docs app
+        var confirm = $mdDialog.confirm()
+          .title('Esta seguro?')
+          .content('Esta operacion <strong>no se puede revertir</strong>.')
+          .ariaLabel('Eliminacion').targetEvent(ev)
+          .ok('Eliminar').cancel('Cancelar');
+
+        $mdDialog.show(confirm).then(function () {
+          console.log("borrando");
+          vm.item.$delete(function () {
+            console.log("Eliminado");
+            $location.path(vm.previous);
+          }, function () {
+            console.log("Fallo la eliminacion");
+          });
+        });
+      };
     }
   }
 
