@@ -5,7 +5,7 @@
 
   /** @ngInject */
   function ProveedorFormController($scope, Proveedor) {
-    $scope.proveedor = new Proveedor(); //si no hay save callback, se debe pasar el Resource
+    $scope.entity = new Proveedor(); //si no hay save callback, se debe pasar el Resource
     $scope.form_options = {
       title: 'Crear Proveedor',
       previous: '/proveedores',

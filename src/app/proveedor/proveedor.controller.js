@@ -13,8 +13,8 @@
         email: 'Email'
       },
       data_prop: 'listado',
-      item_click: function (proveedor) {
-        var path = '/proveedores/' + proveedor.id;
+      item_click: function (i) {
+        var path = '/proveedores/' + i.id;
         $location.path(path);
       }
     };
