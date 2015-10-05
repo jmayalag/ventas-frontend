@@ -7,7 +7,7 @@
 
   /** @ngInject */
   function githubContributor($log, $http) {
-    var apiHost = 'https://api.github.com/repos/UnPolloInc/Projectium';
+    var apiHost = 'https://api.github.com/repos/jmayalag/ventas-frontend';
 
     var service = {
       apiHost: apiHost,
