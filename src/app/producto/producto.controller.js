@@ -9,8 +9,9 @@
       column_defs: {
         id: 'ID',
         nombre: 'Nombre',
-        ruc: 'RUC',
-        email: 'Email'
+        cantidad: 'Cantidad',
+        precio_unitario: 'Precio'
+        //proveedor: 'Proveedor'
       },
       data_prop: 'listado',
       item_click: function (i) {

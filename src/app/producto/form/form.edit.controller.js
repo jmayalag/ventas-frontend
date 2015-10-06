@@ -15,9 +15,9 @@
       successPrefix: '/productos/',
       fields: {
         nombre: 'Nombre',
-        ruc: 'RUC',
-        email: 'E-mail',
-        telefono: 'Telefono',
+        cantidad: 'Cantidad',
+        precio_unitario: 'Precio'
+        //proveedor: 'Proveedor'
       }
     };
   }
