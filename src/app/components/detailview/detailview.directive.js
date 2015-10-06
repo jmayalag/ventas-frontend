@@ -9,6 +9,7 @@
   function detailview() {
     var directive = {
       restrict: 'E',
+      transclude: true,
       templateUrl: 'app/components/detailview/detailview.html',
       scope: {
         options: '=',

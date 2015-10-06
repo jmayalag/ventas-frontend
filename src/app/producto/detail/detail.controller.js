@@ -11,7 +11,13 @@
     $scope.detail_options = {
       title_field: 'nombre',
       previous: '/productos',
-      editPath: '/productos/' + id + '/update'
+      editPath: '/productos/' + id + '/update',
+      fields: {
+        id: 'ID',
+        nombre: 'Nombre',
+        cantidad: 'Cantidad',
+        precio_unitario: 'Precio'
+      }
     };
   }
 })();
