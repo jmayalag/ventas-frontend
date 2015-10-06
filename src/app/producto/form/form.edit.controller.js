@@ -4,9 +4,15 @@
   angular.module('ventas').controller('ProductoFormEditController', ProductoFormEditController);
 
   /** @ngInject */
-  function ProductoFormEditController($scope, $routeParams, Producto) {
+  function ProductoFormEditController($scope, $routeParams, Producto, Proveedor) {
     var id = $routeParams.id;
     $scope.entity = Producto.get({prod_id: id});
+    $scope.proveedores = Proveedor.all();
+
+    $scope.selectProveedor = function (p) {
+      console.log(p);
+      $scope.entity.proveedor = {id: p.id}
+    };
 
     $scope.form_options = {
       title: 'Modificar Producto',

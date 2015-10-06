@@ -1,1 +1,8 @@
 <custom-form item="entity" options="form_options"></custom-form>
+<label>Proveedor: <input ng-model="search.nombre"></label> <br>
+<div ng-repeat="p in proveedores|filter:search" ng-show="search.nombre">
+  <md-button ng-click="selectProveedor(p)">{{p.nombre}}</md-button>
+</div>
+<!--<select name="repeatSelect" id="repeatSelect" ng-model="entity.proveedor">-->
+  <!--<option ng-repeat="p in proveedores" value="{{p.id}}">{{p.nombre}}</option>-->
+<!--</select>-->
