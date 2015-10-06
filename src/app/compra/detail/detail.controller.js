@@ -9,9 +9,14 @@
     $scope.entity = Compra.get({compra_id: id});
 
     $scope.detail_options = {
-      title_field: 'nombre',
+      title: 'Compra #' + id,
       previous: '/compras',
-      editPath: '/compras/' + id + '/update'
+      editPath: '/compras/' + id + '/update',
+      fields: {
+        id: 'ID',
+        fecha: 'Fecha',
+        monto_total: 'Total'
+      }
     };
   }
 })();

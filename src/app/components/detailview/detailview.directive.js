@@ -49,7 +49,7 @@
           vm.item.$promise.then(function (data) {
             vm.title = data[o.title_field];
           });
-        } else if (o.field) {
+        } else if (o.title) {
           vm.title = o.title;
         } else {
           vm.title = 'Detail View';

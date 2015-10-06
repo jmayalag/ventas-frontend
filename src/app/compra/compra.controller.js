@@ -8,9 +8,8 @@
     $scope.options = {
       column_defs: {
         id: 'ID',
-        nombre: 'Nombre',
-        ruc: 'RUC',
-        email: 'Email'
+        fecha: 'Fecha',
+        monto_total: 'Total'
       },
       data_prop: 'listado',
       item_click: function (i) {
