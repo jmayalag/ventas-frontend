@@ -1,7 +1,7 @@
 <custom-form item="entity" options="form_options"></custom-form>
 <md-autocomplete flex md-selected-item-change="selectProveedor(item)" md-search-text="search.nombre"
                  md-items="item in proveedores | filter:search" md-item-text="item.nombre"
-                 md-floating-label="Proveedor" md-select-on-match=true md-selected-item="selected">
+                 md-floating-label="Proveedor" md-selected-item="selected" md-autoselect="true">
   <md-item-template>
     <span md-highlight-text="search.nombre" md-highlight-flags="^i">{{item.nombre}}</span>
   </md-item-template>
