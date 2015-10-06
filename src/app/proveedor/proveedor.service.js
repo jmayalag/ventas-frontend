@@ -9,7 +9,8 @@
   function Proveedor($resource) {
     var apiHost = 'http://localhost:8080/tareaweb2/rest';
     return $resource(apiHost + '/proveedores/:prov_id', {prov_id: '@id'}, {
-      update: {method: 'PUT', params: {prov_id: ''}}
+      update: {method: 'PUT', params: {prov_id: ''}},
+      all: {method: 'GET', params: {prov_id: 'all'}, isArray: true}
     });
   }
 })();
