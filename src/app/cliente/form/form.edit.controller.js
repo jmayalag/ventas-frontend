@@ -15,9 +15,8 @@
       successPrefix: '/clientes/',
       fields: {
         nombre: 'Nombre',
-        ruc: 'RUC',
-        email: 'E-mail',
-        telefono: 'Telefono',
+        apellidos: 'Apellido',
+        cedula: 'cedula'
       }
     };
   }

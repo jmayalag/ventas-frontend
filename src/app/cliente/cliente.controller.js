@@ -9,8 +9,8 @@
       column_defs: {
         id: 'ID',
         nombre: 'Nombre',
-        ruc: 'RUC',
-        email: 'Email'
+        apellidos: 'Apellido',
+        cedula: 'Cedula'
       },
       data_prop: 'listado',
       item_click: function (i) {
