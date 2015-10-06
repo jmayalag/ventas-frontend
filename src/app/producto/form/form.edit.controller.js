@@ -8,6 +8,7 @@
     var id = $routeParams.id;
     $scope.entity = Producto.get({prod_id: id});
     $scope.proveedores = Proveedor.all();
+    $scope.selected = {};
 
     $scope.entity.$promise.then(function (d) {
       console.log(d.proveedor.nombre);
@@ -27,7 +28,6 @@
         nombre: 'Nombre',
         cantidad: 'Cantidad',
         precio_unitario: 'Precio'
-        //proveedor: 'Proveedor'
       }
     };
   }

@@ -9,6 +9,7 @@
   function customForm() {
     var directive = {
       restrict: 'E',
+      transclude: true,
       templateUrl: 'app/components/customForm/customForm.html',
       scope: {
         options: '=',

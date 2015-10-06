@@ -20,7 +20,6 @@
         nombre: 'Nombre',
         cantidad: 'Cantidad',
         precio_unitario: 'Precio'
-        //proveedor: 'proveedor'
       }
     };
   }
