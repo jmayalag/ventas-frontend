@@ -11,12 +11,11 @@
 
     $scope.entity.$promise.then(function (d) {
       console.log(d.proveedor.nombre);
-      $scope.search = {nombre: d.proveedor.nombre};
+      $scope.selected = d.proveedor;
     });
 
     $scope.selectProveedor = function (p) {
-      console.log(p);
-      $scope.entity.proveedor = {id: p.id};
+      $scope.entity.proveedor = {id: p ? p.id : null}
     };
 
     $scope.form_options = {
