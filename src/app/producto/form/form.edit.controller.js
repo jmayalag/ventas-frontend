@@ -9,9 +9,14 @@
     $scope.entity = Producto.get({prod_id: id});
     $scope.proveedores = Proveedor.all();
 
+    $scope.entity.$promise.then(function (d) {
+      console.log(d.proveedor.nombre);
+      $scope.search = {nombre: d.proveedor.nombre};
+    });
+
     $scope.selectProveedor = function (p) {
       console.log(p);
-      $scope.entity.proveedor = {id: p.id}
+      $scope.entity.proveedor = {id: p.id};
     };
 
     $scope.form_options = {

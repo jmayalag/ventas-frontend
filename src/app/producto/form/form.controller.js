@@ -7,7 +7,6 @@
   function ProductoFormController($scope, Producto, Proveedor) {
     $scope.entity = new Producto(); //si no hay save callback, se debe pasar el Resource
     $scope.proveedores = Proveedor.all();
-
     $scope.selectProveedor = function (p) {
       console.log(p);
       $scope.entity.proveedor = {id: p.id}
