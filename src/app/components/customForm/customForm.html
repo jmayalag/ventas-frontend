@@ -18,7 +18,6 @@
           <input ng-model="vm.item[k]">
         </md-input-container>
         <ng-transclude></ng-transclude>
-        NEW: {{vm.item}}
       </md-card-content>
       <div class="md-actions" layout="row" layout-align="end center">
         <md-button class="md-raised" ng-click="vm.cancel()">Cancelar</md-button>
@@ -27,3 +26,7 @@
     </md-card>
   </md-content>
 </div>
+<h3>Debug</h3>
+<pre>
+ entity: {{vm.item}}
+</pre>

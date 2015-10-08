@@ -40,6 +40,10 @@
         $log.info(p);
       };
 
+      vm.import = function (){
+        $log.info("Importando");
+      }
+
       var getData = function () {
         vm.queryParams.page = vm.current_page;
         vm.loading = true;
