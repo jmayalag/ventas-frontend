@@ -9,7 +9,8 @@
       column_defs: {
         id: 'ID',
         fecha: 'Fecha',
-        monto_total: 'Total'
+        monto_total: 'Total',
+        proveedor: 'Proveedor'
       },
       data_prop: 'listado',
       item_click: function (i) {
