@@ -1,22 +1,22 @@
 (function () {
   'use strict';
 
-  angular.module('ventas').controller('CompraDetailController', CompraDetailController);
+  angular.module('ventas').controller('VentaDetailController', VentaDetailController);
 
   /** @ngInject */
-  function CompraDetailController($scope, $routeParams, Compra) {
+  function VentaDetailController($scope, $routeParams, Venta) {
     var id = $routeParams.id;
-    $scope.entity = Compra.get({compra_id: id});
+    $scope.entity = Venta.get({venta_id: id});
 
     $scope.detail_options = {
-      title: 'Compra #' + id,
-      previous: '/compras',
+      title: 'Venta #' + id,
+      previous: '/ventas',
       fields: {
         id: 'ID',
         fecha: 'Fecha',
         monto_total: 'Total'
       },
-      readOnly: true,
+      readOnly: true
     };
   }
 })();
