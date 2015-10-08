@@ -4,9 +4,10 @@
   angular.module('ventas').controller('ProveedorFormController', ProveedorFormController);
 
   /** @ngInject */
-  function ProveedorFormController($scope, Proveedor) {
-    $scope.entity = new Proveedor(); //si no hay save callback, se debe pasar el Resource
-    $scope.form_options = {
+  function ProveedorFormController(Proveedor) {
+    var vm = this;
+    vm.entity = new Proveedor(); //si no hay save callback, se debe pasar el Resource
+    vm.form_options = {
       title: 'Crear Proveedor',
       previous: '/proveedores',
       successPrefix: '/proveedores/',

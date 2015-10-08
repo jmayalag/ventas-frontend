@@ -4,11 +4,12 @@
   angular.module('ventas').controller('ProveedorFormEditController', ProveedorFormEditController);
 
   /** @ngInject */
-  function ProveedorFormEditController($scope, $routeParams, Proveedor) {
+  function ProveedorFormEditController($routeParams, Proveedor) {
+    var vm = this;
     var id = $routeParams.id;
-    $scope.entity = Proveedor.get({prov_id: id});
+    vm.entity = Proveedor.get({prov_id: id});
 
-    $scope.form_options = {
+    vm.form_options = {
       title: 'Modificar Proveedor',
       edit: 'true',
       previous: '/proveedores/' + id,

@@ -4,11 +4,12 @@
   angular.module('ventas').controller('ProveedorDetailController', ProveedorDetailController);
 
   /** @ngInject */
-  function ProveedorDetailController($scope, $routeParams, Proveedor) {
+  function ProveedorDetailController($routeParams, Proveedor) {
+    var vm = this;
     var id = $routeParams.id;
-    $scope.entity = Proveedor.get({prov_id: id});
+    vm.entity = Proveedor.get({prov_id: id});
 
-    $scope.detail_options = {
+    vm.detail_options = {
       title_field: 'nombre',
       previous: '/proveedores',
       editPath: '/proveedores/' + id + '/update'

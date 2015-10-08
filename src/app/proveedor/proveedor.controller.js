@@ -4,8 +4,9 @@
   angular.module('ventas').controller('ProveedorController', ProveedorController);
 
   /** @ngInject */
-  function ProveedorController($scope, $location, Proveedor) {
-    $scope.options = {
+  function ProveedorController($location, Proveedor) {
+    var vm = this;
+    vm.options = {
       column_defs: {
         id: 'ID',
         nombre: 'Nombre',
