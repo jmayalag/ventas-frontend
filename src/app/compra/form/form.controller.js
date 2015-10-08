@@ -9,10 +9,7 @@
     $scope.form_options = {
       title: 'Crear Compra',
       previous: '/compras',
-      successPrefix: '/compras/',
-      fields: {
-        monto_total: 'Total'
-      }
+      successPrefix: '/compras/'
     };
 
     $scope.proveedores = Proveedor.all();
