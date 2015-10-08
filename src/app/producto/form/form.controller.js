@@ -4,15 +4,16 @@
   angular.module('ventas').controller('ProductoFormController', ProductoFormController);
 
   /** @ngInject */
-  function ProductoFormController($scope, Producto, Proveedor) {
-    $scope.entity = new Producto(); //si no hay save callback, se debe pasar el Resource
-    $scope.proveedores = Proveedor.all();
+  function ProductoFormController(Producto, Proveedor) {
+    var vm = this;
+    vm.entity = new Producto(); //si no hay save callback, se debe pasar el Resource
+    vm.proveedores = Proveedor.all();
 
-    $scope.selectProveedor = function (p) {
-      $scope.entity.proveedor = {id: p ? p.id : null}
+    vm.selectProveedor = function (p) {
+      vm.entity.proveedor = {id: p ? p.id : null}
     };
 
-    $scope.form_options = {
+    vm.form_options = {
       title: 'Crear Producto',
       previous: '/productos',
       successPrefix: '/productos/',

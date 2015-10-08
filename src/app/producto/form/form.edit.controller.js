@@ -4,22 +4,24 @@
   angular.module('ventas').controller('ProductoFormEditController', ProductoFormEditController);
 
   /** @ngInject */
-  function ProductoFormEditController($scope, $routeParams, Producto, Proveedor) {
+  function ProductoFormEditController($routeParams, Producto, Proveedor) {
+    var vm = this;
     var id = $routeParams.id;
-    $scope.entity = Producto.get({prod_id: id});
-    $scope.proveedores = Proveedor.all();
-    $scope.selected = {};
+    vm.entity = Producto.get({prod_id: id});
+    vm.proveedores = Proveedor.all();
+    vm.selected = {};
 
-    $scope.entity.$promise.then(function (d) {
+    vm.entity.$promise.then(function (d) {
       console.log(d.proveedor.nombre);
-      $scope.selected = d.proveedor;
+      vm.selected = d.proveedor;
     });
 
-    $scope.selectProveedor = function (p) {
-      $scope.entity.proveedor = {id: p ? p.id : null}
+    vm.selectProveedor = function (p) {
+      console.log(p);
+      vm.entity.proveedor = {id: p ? p.id : null}
     };
 
-    $scope.form_options = {
+    vm.form_options = {
       title: 'Modificar Producto',
       edit: 'true',
       previous: '/productos/' + id,
