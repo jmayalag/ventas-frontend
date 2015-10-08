@@ -4,7 +4,7 @@
   angular.module('ventas').controller('CompraFormController', CompraFormController);
 
   /** @ngInject */
-  function CompraFormController($scope, Compra, Proveedor) {
+  function CompraFormController($scope, Compra, Proveedor, Producto) {
     $scope.entity = new Compra(); //si no hay save callback, se debe pasar el Resource
     $scope.form_options = {
       title: 'Crear Compra',
@@ -21,22 +21,23 @@
       $scope.entity.proveedor = {id: p ? p.id : null}
     };
 
-    $scope.productos = Proveedor.all();
+    $scope.productos = Producto.all();
 
-    $scope.selectProducto = function (p) {
-      $scope.prod = {id: p ? p.id : null}
+    $scope.selectProducto = function (producto, arrItem) {
+      console.log(producto);
+      arrItem.producto = {id: producto ? producto.id : null};
     };
 
-    $scope.detalles = [];
+    $scope.entity.detalles = [];
 
     $scope.addDetalle = function () {
       console.log("add");
-      $scope.detalles.push({});
+      $scope.entity.detalles.push({});
     };
 
     $scope.deleteDetalle = function () {
       console.log("del");
-      $scope.detalles.pop();
+      $scope.entity.detalles.pop();
     };
   }
 })();
