@@ -1,0 +1,45 @@
+<custom-form item="entity" options="form_options">
+  <div layout layout-sm="column">
+    <md-autocomplete flex md-selected-item-change="selectProveedor(item)" md-search-text="search.nombre"
+                     md-items="item in proveedores | filter:search" md-item-text="item.nombre"
+                     md-floating-label="Proveedor" md-selected-item="selected" md-autoselect="true"
+                     style="width: 70%;">
+      <md-item-template>
+        <span md-highlight-text="search.nombre" md-highlight-flags="^i">{{item.nombre}}</span>
+      </md-item-template>
+      <md-not-found>
+        Proveedor no encontrado.
+      </md-not-found>
+    </md-autocomplete>
+    <md-datepicker ng-model="entity.fecha" md-placeholder="Fecha"></md-datepicker>
+  </div>
+  <div>
+    <h3 class="md-title">Detalles
+      <md-button class="md-fab md-mini md-primary" aria-label="Crear Proveedor" ng-click="addDetalle()">
+        <md-icon md-svg-src="assets/icons/ic_add_white_24px.svg"></md-icon>
+      </md-button>
+    </h3>
+    <div layout layout-sm="column" ng-repeat="detalle in entity.detalles">
+      <md-autocomplete flex md-selected-item-change="selectProducto(selectedProduct, detalle)"
+                       md-search-text="searchProducto.nombre"
+                       md-items="item in productos | filter:searchProducto" md-item-text="item.nombre"
+                       md-floating-label="Producto" md-selected-item="selectedProduct" md-autoselect="true"
+                       style="width: 70%;">
+        <md-item-template>
+          <span md-highlight-text="search.nombre" md-highlight-flags="^i">{{item.nombre}}</span>
+        </md-item-template>
+        <md-not-found>
+          Producto no encontrado.
+        </md-not-found>
+      </md-autocomplete>
+      <md-input-container flex>
+        <label>Cantidad</label>
+        <input ng-model="detalle.cantidad">
+      </md-input-container>
+      <md-button class="md-fab md-mini md-warn" aria-label="Delete" ng-click="deleteDetalle(detalle)">
+        <md-icon md-svg-src="assets/icons/ic_close_white_24px.svg"></md-icon>
+      </md-button>
+    </div>
+  </div>
+</custom-form>
+{{detalles}}
