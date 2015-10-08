@@ -4,8 +4,9 @@
   angular.module('ventas').controller('ClienteController', ClienteController);
 
   /** @ngInject */
-  function ClienteController($scope, $location, Cliente) {
-    $scope.options = {
+  function ClienteController($location, Cliente) {
+    var vm = this;
+    vm.options = {
       column_defs: {
         id: 'ID',
         nombre: 'Nombre',

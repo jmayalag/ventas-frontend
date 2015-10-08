@@ -15,7 +15,8 @@
 
       .when('/clientes', {
         templateUrl: 'app/cliente/cliente.html',
-        controller: 'ClienteController'
+        controller: 'ClienteController',
+        controllerAs: 'clientes'
       })
       .when('/clientes/create', {
         templateUrl: 'app/cliente/form/form.html',
