@@ -4,46 +4,47 @@
   angular.module('ventas').controller('VentaFormController', VentaFormController);
 
   /** @ngInject */
-  function VentaFormController($scope, Venta, Cliente, Producto) {
-    $scope.entity = new Venta(); //si no hay save callback, se debe pasar el Resource
-    $scope.entity.fecha = new Date();
-    $scope.form_options = {
+  function VentaFormController(Venta, Cliente, Producto) {
+    var vm = this;
+    vm.entity = new Venta(); //si no hay save callback, se debe pasar el Resource
+    vm.entity.fecha = new Date();
+    vm.form_options = {
       title: 'Crear Venta',
       previous: '/ventas',
       successPrefix: '/ventas/'
     };
 
-    //$scope.clientes = Cliente.all();
-    $scope.clientes = [];
+    //vm.clientes = Cliente.all();
+    vm.clientes = [];
     Cliente.all(function (clientes) {
       angular.forEach(clientes, function (v) {
-        $scope.clientes.push({id: v.id, nombre: v.nombre + " " + v.apellidos});
+        vm.clientes.push({id: v.id, nombre: v.nombre + " " + v.apellidos});
       });
     });
 
-    $scope.selectCliente = function (p) {
-      $scope.entity.cliente = {id: p ? p.id : null}
+    vm.selectCliente = function (p) {
+      vm.entity.cliente = {id: p ? p.id : null}
     };
 
-    $scope.productos = Producto.all();
+    vm.productos = Producto.all();
 
-    $scope.selectProducto = function (producto, arrItem) {
+    vm.selectProducto = function (producto, arrItem) {
       console.log(producto);
       arrItem.producto = {id: producto ? producto.id : null};
     };
 
-    $scope.entity.detalles = [{}];
+    vm.entity.detalles = [{}];
 
-    $scope.addDetalle = function () {
+    vm.addDetalle = function () {
       console.log("add");
-      $scope.entity.detalles.push({});
+      vm.entity.detalles.push({});
     };
 
-    $scope.deleteDetalle = function (d) {
+    vm.deleteDetalle = function (d) {
       console.log("del");
-      var index = $scope.entity.detalles.indexOf(d);
+      var index = vm.entity.detalles.indexOf(d);
       if (index != -1) {
-        $scope.entity.detalles.splice(index, 1);
+        vm.entity.detalles.splice(index, 1);
       }
     };
   }

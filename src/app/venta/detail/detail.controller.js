@@ -4,11 +4,12 @@
   angular.module('ventas').controller('VentaDetailController', VentaDetailController);
 
   /** @ngInject */
-  function VentaDetailController($scope, $routeParams, Venta) {
+  function VentaDetailController($routeParams, Venta) {
+    var vm = this;
     var id = $routeParams.id;
-    $scope.entity = Venta.get({venta_id: id});
+    vm.entity = Venta.get({venta_id: id});
 
-    $scope.detail_options = {
+    vm.detail_options = {
       title: 'Venta #' + id,
       previous: '/ventas',
       fields: {
