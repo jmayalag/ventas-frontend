@@ -63,7 +63,6 @@
         templateUrl: 'app/producto/form/form.html',
         controller: 'ProductoFormEditController'
       })
-
       .when('/ventas/', {
         templateUrl: 'app/venta/venta.html',
         controller: 'VentaController'
@@ -75,10 +74,6 @@
       .when('/ventas/:id', {
         templateUrl: 'app/venta/detail/detail.html',
         controller: 'VentaDetailController'
-      })
-      .when('/ventas/:id/update', {
-        templateUrl: 'app/venta/form/form.html',
-        controller: 'VentaFormEditController'
       })
       .when('/compras/', {
         templateUrl: 'app/compra/compra.html',
