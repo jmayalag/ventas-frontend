@@ -4,8 +4,9 @@
   angular.module('ventas').controller('CompraController', CompraController);
 
   /** @ngInject */
-  function CompraController($scope, $location, Compra) {
-    $scope.options = {
+  function CompraController($location, Compra) {
+    var vm = this;
+    vm.options = {
       column_defs: {
         id: 'ID',
         fecha: 'Fecha',

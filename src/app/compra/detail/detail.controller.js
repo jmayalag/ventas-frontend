@@ -4,11 +4,12 @@
   angular.module('ventas').controller('CompraDetailController', CompraDetailController);
 
   /** @ngInject */
-  function CompraDetailController($scope, $routeParams, Compra) {
+  function CompraDetailController($routeParams, Compra) {
+    var vm = this;
     var id = $routeParams.id;
-    $scope.entity = Compra.get({compra_id: id});
+    vm.entity = Compra.get({compra_id: id});
 
-    $scope.detail_options = {
+    vm.detail_options = {
       title: 'Compra #' + id,
       previous: '/compras',
       fields: {

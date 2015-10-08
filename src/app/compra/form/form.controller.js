@@ -4,40 +4,41 @@
   angular.module('ventas').controller('CompraFormController', CompraFormController);
 
   /** @ngInject */
-  function CompraFormController($scope, Compra, Proveedor, Producto) {
-    $scope.entity = new Compra(); //si no hay save callback, se debe pasar el Resource
-    $scope.entity.fecha = new Date();
-    $scope.form_options = {
+  function CompraFormController(Compra, Proveedor, Producto) {
+    var vm = this;
+    vm.entity = new Compra(); //si no hay save callback, se debe pasar el Resource
+    vm.entity.fecha = new Date();
+    vm.form_options = {
       title: 'Crear Compra',
       previous: '/compras',
       successPrefix: '/compras/'
     };
 
-    $scope.proveedores = Proveedor.all();
+    vm.proveedores = Proveedor.all();
 
-    $scope.selectProveedor = function (p) {
-      $scope.entity.proveedor = {id: p ? p.id : null}
+    vm.selectProveedor = function (p) {
+      vm.entity.proveedor = {id: p ? p.id : null}
     };
 
-    $scope.productos = Producto.all();
+    vm.productos = Producto.all();
 
-    $scope.selectProducto = function (producto, arrItem) {
+    vm.selectProducto = function (producto, arrItem) {
       console.log(producto);
       arrItem.producto = {id: producto ? producto.id : null};
     };
 
-    $scope.entity.detalles = [{}];
+    vm.entity.detalles = [{}];
 
-    $scope.addDetalle = function () {
+    vm.addDetalle = function () {
       console.log("add");
-      $scope.entity.detalles.push({});
+      vm.entity.detalles.push({});
     };
 
-    $scope.deleteDetalle = function (d) {
+    vm.deleteDetalle = function (d) {
       console.log("del");
-      var index = $scope.entity.detalles.indexOf(d);
+      var index = vm.entity.detalles.indexOf(d);
       if (index != -1) {
-        $scope.entity.detalles.splice(index, 1);
+        vm.entity.detalles.splice(index, 1);
       }
     };
   }
