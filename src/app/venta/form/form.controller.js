@@ -12,10 +12,10 @@
       successPrefix: '/ventas/'
     };
 
-    $scope.proveedores = Cliente.all();
+    $scope.clientes = Cliente.all();
 
-    $scope.selectProveedor = function (p) {
-      $scope.entity.proveedor = {id: p ? p.id : null}
+    $scope.selectCliente = function (p) {
+      $scope.entity.cliente = {id: p ? p.id : null}
     };
 
     $scope.productos = Producto.all();
