@@ -33,6 +33,13 @@
         vm.current_page = 1;
       };
 
+      vm.export = function (format) {
+        $log.info("Exportando " + format);
+        var p = vm.queryParams;
+        delete p['page'];
+        $log.info(p);
+      };
+
       var getData = function () {
         vm.queryParams.page = vm.current_page;
         vm.loading = true;
@@ -117,12 +124,10 @@
       };
 
       vm.reset = function () {
-        //sort = {field: 'id', desc: false};
+        sort = {field: 'id', desc: false};
         //vm.queryParams = {id: 'asc'};
-        //vm.filtering.searchFields = {};
+        vm.filtering.searchFields = {};
         //vm.queryParams = {};
-        //pageRestart();
-        //getData();
         init();
       };
 
