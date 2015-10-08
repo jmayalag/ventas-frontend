@@ -1,18 +1,18 @@
 //(function () {
 //  'use strict';
 //
-//  angular.module('ventas').controller('CompraFormEditController', CompraFormEditController);
+//  angular.module('ventas').controller('VentaFormEditController', VentaFormEditController);
 //
 //  /** @ngInject */
-//  function CompraFormEditController($scope, $routeParams, Compra) {
+//  function VentaFormEditController($scope, $routeParams, Venta) {
 //    var id = $routeParams.id;
-//    $scope.entity = Compra.get({compra_id: id});
+//    $scope.entity = Venta.get({venta_id: id});
 //
 //    $scope.form_options = {
-//      title: 'Modificar Compra',
+//      title: 'Modificar Venta',
 //      edit: 'true',
-//      previous: '/compras/' + id,
-//      successPrefix: '/compras/',
+//      previous: '/ventas/' + id,
+//      successPrefix: '/ventas/',
 //      fields: {
 //        nombre: 'Nombre',
 //        ruc: 'RUC',
