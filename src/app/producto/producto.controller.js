@@ -10,8 +10,8 @@
         id: 'ID',
         nombre: 'Nombre',
         cantidad: 'Cantidad',
-        precio_unitario: 'Precio'
-        //proveedor: 'Proveedor'
+        precio_unitario: 'Precio',
+        proveedor: 'Proveedor'
       },
       data_prop: 'listado',
       item_click: function (i) {
