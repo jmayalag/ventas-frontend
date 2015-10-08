@@ -1,15 +1,15 @@
 (function () {
   'use strict';
 
-  angular.module('ventas').controller('CompraFormController', CompraFormController);
+  angular.module('ventas').controller('VentaFormController', VentaFormController);
 
   /** @ngInject */
-  function CompraFormController($scope, Compra, Proveedor, Producto) {
-    $scope.entity = new Compra(); //si no hay save callback, se debe pasar el Resource
+  function VentaFormController($scope, Venta, Proveedor, Producto) {
+    $scope.entity = new Venta(); //si no hay save callback, se debe pasar el Resource
     $scope.form_options = {
-      title: 'Crear Compra',
-      previous: '/compras',
-      successPrefix: '/compras/'
+      title: 'Crear Venta',
+      previous: '/ventas',
+      successPrefix: '/ventas/'
     };
 
     $scope.proveedores = Proveedor.all();
