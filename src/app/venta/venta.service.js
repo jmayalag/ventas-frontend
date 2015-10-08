@@ -8,7 +8,7 @@
   /** @ngInject */
   function Venta($resource) {
     var apiHost = 'http://localhost:8080/tareaweb2/rest';
-    return $resource(apiHost + '/proveedores/:venta_id', {venta_id: '@id'}, {
+    return $resource(apiHost + '/ventas/:venta_id', {venta_id: '@id'}, {
       update: {method: 'PUT', params: {venta_id: ''}}
     });
   }
