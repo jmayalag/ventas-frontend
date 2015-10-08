@@ -6,6 +6,7 @@
   /** @ngInject */
   function CompraFormController($scope, Compra, Proveedor, Producto) {
     $scope.entity = new Compra(); //si no hay save callback, se debe pasar el Resource
+    $scope.entity.fecha = new Date();
     $scope.form_options = {
       title: 'Crear Compra',
       previous: '/compras',
