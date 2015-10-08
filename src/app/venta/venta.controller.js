@@ -1,20 +1,20 @@
 (function () {
   'use strict';
 
-  angular.module('ventas').controller('CompraController', CompraController);
+  angular.module('ventas').controller('VentaController', VentaController);
 
   /** @ngInject */
-  function CompraController($scope, $location, Compra) {
+  function VentaController($scope, $location, Venta) {
     $scope.options = {
       column_defs: {
         id: 'ID',
         fecha: 'Fecha',
         monto_total: 'Total',
-        proveedor: 'Proveedor'
+        cliente: 'Cliente'
       },
       data_prop: 'listado',
       item_click: function (i) {
-        var path = '/compras/' + i.id;
+        var path = '/ventas/' + i.id;
         $location.path(path);
       }
     };
