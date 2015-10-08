@@ -28,16 +28,19 @@
       arrItem.producto = {id: producto ? producto.id : null};
     };
 
-    $scope.entity.detalles = [];
+    $scope.entity.detalles = [{}];
 
     $scope.addDetalle = function () {
       console.log("add");
       $scope.entity.detalles.push({});
     };
 
-    $scope.deleteDetalle = function () {
+    $scope.deleteDetalle = function (d) {
       console.log("del");
-      $scope.entity.detalles.pop();
+      var index = $scope.entity.detalles.indexOf(d);
+      if (index != -1) {
+        $scope.entity.detalles.splice(index, 1);
+      }
     };
   }
 })();
