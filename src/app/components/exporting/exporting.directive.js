@@ -25,8 +25,10 @@
       var vm = this;
       var o = vm.options;
 
-      $log.info("Exportando");
-      vm.mensaje = 'exportando';
+      vm.export = function () {
+        $log.info("Exportando");
+        vm.mensaje = 'exportando';
+      };
     }
   }
 
