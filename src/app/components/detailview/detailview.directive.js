@@ -41,9 +41,12 @@
         vm.cancel = o.cancel ? o.cancel : function () {
           $location.path(vm.previous).replace(); //sin callback
         };
-        vm.edit = o.edit ? o.edit : function () {
-          $location.path(vm.editPath).replace();
-        };
+
+        if (!o.readOnly) {
+          vm.edit = o.edit ? o.edit : function () {
+            $location.path(vm.editPath).replace();
+          };
+        }
 
         if (o.title_field) {
           vm.item.$promise.then(function (data) {

@@ -11,12 +11,12 @@
     $scope.detail_options = {
       title: 'Compra #' + id,
       previous: '/compras',
-      editPath: '/compras/' + id + '/update',
       fields: {
         id: 'ID',
         fecha: 'Fecha',
         monto_total: 'Total'
-      }
+      },
+      readOnly: true,
     };
   }
 })();

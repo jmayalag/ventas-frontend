@@ -92,10 +92,6 @@
         templateUrl: 'app/compra/detail/detail.html',
         controller: 'CompraDetailController'
       })
-      .when('/compras/:id/update', {
-        templateUrl: 'app/compra/form/form.html',
-        controller: 'CompraFormEditController'
-      })
       //.otherwise({
       //  redirectTo: '/'
       //})

@@ -22,8 +22,8 @@
       </md-card-content>
       <div class="md-actions" layout="row" layout-align="end center">
         <md-button class="md-raised" ng-click="vm.cancel()">Volver</md-button>
-        <md-button class="md-raised md-warn" ng-click="vm.deleteConfirm($event)">Eliminar</md-button>
-        <md-button class="md-raised md-primary" ng-click="vm.edit()">Editar</md-button>
+        <md-button class="md-raised md-warn" ng-click="vm.deleteConfirm($event)" ng-if="!vm.options.readOnly">Eliminar</md-button>
+        <md-button class="md-raised md-primary" ng-click="vm.edit()" ng-if="!vm.options.readOnly">Editar</md-button>
       </div>
     </md-card>
   </md-content>
