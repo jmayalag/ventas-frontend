@@ -4,7 +4,7 @@
   angular.module('ventas').controller('VentaFormController', VentaFormController);
 
   /** @ngInject */
-  function VentaFormController($scope, Venta, Proveedor, Producto) {
+  function VentaFormController($scope, Venta, Cliente, Producto) {
     $scope.entity = new Venta(); //si no hay save callback, se debe pasar el Resource
     $scope.form_options = {
       title: 'Crear Venta',
@@ -12,7 +12,7 @@
       successPrefix: '/ventas/'
     };
 
-    $scope.proveedores = Proveedor.all();
+    $scope.proveedores = Cliente.all();
 
     $scope.selectProveedor = function (p) {
       $scope.entity.proveedor = {id: p ? p.id : null}
