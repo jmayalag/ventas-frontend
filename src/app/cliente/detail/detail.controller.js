@@ -4,11 +4,12 @@
   angular.module('ventas').controller('ClienteDetailController', ClienteDetailController);
 
   /** @ngInject */
-  function ClienteDetailController($scope, $routeParams, Cliente) {
+  function ClienteDetailController($routeParams, Cliente) {
+    var vm = this;
     var id = $routeParams.id;
-    $scope.entity = Cliente.get({cliente_id: id});
+    vm.entity = Cliente.get({cliente_id: id});
 
-    $scope.detail_options = {
+    vm.detail_options = {
       title_field: 'nombre',
       previous: '/clientes',
       editPath: '/clientes/' + id + '/update'

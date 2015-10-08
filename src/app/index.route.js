@@ -16,77 +16,94 @@
       .when('/clientes', {
         templateUrl: 'app/cliente/cliente.html',
         controller: 'ClienteController',
-        controllerAs: 'clientes'
+        controllerAs: 'ctl'
       })
       .when('/clientes/create', {
         templateUrl: 'app/cliente/form/form.html',
-        controller: 'ClienteFormController'
+        controller: 'ClienteFormController',
+        controllerAs: 'ctl'
       })
       .when('/clientes/:id', {
         templateUrl: 'app/cliente/detail/detail.html',
-        controller: 'ClienteDetailController'
+        controller: 'ClienteDetailController',
+        controllerAs: 'ctl'
       })
       .when('/clientes/:id/update', {
         templateUrl: 'app/cliente/form/form.html',
-        controller: 'ClienteFormEditController'
+        controller: 'ClienteFormEditController',
+        controllerAs: 'ctl'
       })
 
       .when('/proveedores', {
         templateUrl: 'app/proveedor/proveedor.html',
-        controller: 'ProveedorController'
+        controller: 'ProveedorController',
+        controllerAs: 'ctl'
       })
       .when('/proveedores/create', {
         templateUrl: 'app/proveedor/form/form.html',
-        controller: 'ProveedorFormController'
+        controller: 'ProveedorFormController',
+        controllerAs: 'ctl'
       })
       .when('/proveedores/:id', {
         templateUrl: 'app/proveedor/detail/detail.html',
-        controller: 'ProveedorDetailController'
+        controller: 'ProveedorDetailController',
+        controllerAs: 'ctl'
       })
       .when('/proveedores/:id/update', {
         templateUrl: 'app/proveedor/form/form.html',
-        controller: 'ProveedorFormEditController'
+        controller: 'ProveedorFormEditController',
+        controllerAs: 'ctl'
       })
 
       .when('/productos/', {
         templateUrl: 'app/producto/producto.html',
-        controller: 'ProductoController'
+        controller: 'ProductoController',
+        controllerAs: 'ctl'
       })
       .when('/productos/create', {
         templateUrl: 'app/producto/form/form.html',
-        controller: 'ProductoFormController'
+        controller: 'ProductoFormController',
+        controllerAs: 'ctl'
       })
       .when('/productos/:id', {
         templateUrl: 'app/producto/detail/detail.html',
-        controller: 'ProductoDetailController'
+        controller: 'ProductoDetailController',
+        controllerAs: 'ctl'
       })
       .when('/productos/:id/update', {
         templateUrl: 'app/producto/form/form.html',
-        controller: 'ProductoFormEditController'
+        controller: 'ProductoFormEditController',
+        controllerAs: 'ctl'
       })
       .when('/ventas/', {
         templateUrl: 'app/venta/venta.html',
-        controller: 'VentaController'
+        controller: 'VentaController',
+        controllerAs: 'ctl'
       })
       .when('/ventas/create', {
         templateUrl: 'app/venta/form/form.html',
-        controller: 'VentaFormController'
+        controller: 'VentaFormController',
+        controllerAs: 'ctl'
       })
       .when('/ventas/:id', {
         templateUrl: 'app/venta/detail/detail.html',
-        controller: 'VentaDetailController'
+        controller: 'VentaDetailController',
+        controllerAs: 'ctl'
       })
       .when('/compras/', {
         templateUrl: 'app/compra/compra.html',
-        controller: 'CompraController'
+        controller: 'CompraController',
+        controllerAs: 'ctl'
       })
       .when('/compras/create', {
         templateUrl: 'app/compra/form/form.html',
-        controller: 'CompraFormController'
+        controller: 'CompraFormController',
+        controllerAs: 'ctl'
       })
       .when('/compras/:id', {
         templateUrl: 'app/compra/detail/detail.html',
-        controller: 'CompraDetailController'
+        controller: 'CompraDetailController',
+        controllerAs: 'ctl'
       })
       //.otherwise({
       //  redirectTo: '/'

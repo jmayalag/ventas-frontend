@@ -4,9 +4,10 @@
   angular.module('ventas').controller('ClienteFormController', ClienteFormController);
 
   /** @ngInject */
-  function ClienteFormController($scope, Cliente) {
-    $scope.entity = new Cliente(); //si no hay save callback, se debe pasar el Resource
-    $scope.form_options = {
+  function ClienteFormController(Cliente) {
+    var vm = this;
+    vm.entity = new Cliente(); //si no hay save callback, se debe pasar el Resource
+    vm.form_options = {
       title: 'Crear Cliente',
       previous: '/clientes',
       successPrefix: '/clientes/',
