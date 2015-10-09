@@ -7,6 +7,7 @@
   function ClienteController($location, Cliente) {
     var vm = this;
     vm.options = {
+      export: 'Clientes',
       column_defs: {
         id: 'ID',
         nombre: 'Nombre',

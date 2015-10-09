@@ -33,14 +33,20 @@
         vm.current_page = 1;
       };
 
-      vm.export = function (format) {
-        $log.info("Exportando " + format);
-        var p = vm.queryParams;
-        delete p['page'];
-        $log.info(p);
-      };
+      if (vm.options.export) {
+        vm.export = function (format) {
+          $log.info("Exportando " + format);
+          //var p = vm.queryParams;
+          //delete p['page'];
+          //$log.info(p);
+          var anchor = angular.element('<a/>');
+          anchor.attr({
+            href: 'http://localhost:8080/tareaweb2/export' + vm.options.export
+          })[0].click();
+        };
+      }
 
-      vm.import = function (){
+      vm.import = function () {
         $log.info("Importando");
       }
 

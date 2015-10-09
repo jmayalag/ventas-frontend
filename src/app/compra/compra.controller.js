@@ -7,6 +7,7 @@
   function CompraController($location, Compra) {
     var vm = this;
     vm.options = {
+      export: 'Compras',
       column_defs: {
         id: 'ID',
         fecha: 'Fecha',

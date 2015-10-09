@@ -7,6 +7,7 @@
   function ProductoController($location, Producto) {
     var vm = this;
     vm.options = {
+      export: 'Productos',
       column_defs: {
         id: 'ID',
         nombre: 'Nombre',

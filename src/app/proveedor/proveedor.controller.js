@@ -7,6 +7,7 @@
   function ProveedorController($location, Proveedor) {
     var vm = this;
     vm.options = {
+      export: 'Proveedores',
       column_defs: {
         id: 'ID',
         nombre: 'Nombre',

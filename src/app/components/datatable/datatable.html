@@ -6,8 +6,7 @@
 <div class="btn-group btn-group-sm" role="group">
   <md-button ng-click="vm.filtering.filter()" class="md-raised md-primary">Filtrar</md-button>
   <md-button ng-click="vm.reset()" class="md-raised">Resetear</md-button>
-  <md-button ng-click="vm.export('json')" class="md-raised">JSON</md-button>
-  <md-button ng-click="vm.export('csv')" class="md-raised">CSV</md-button>
+  <md-button ng-click="vm.export('json')" class="md-raised" ng-if="vm.options.export">JSON</md-button>
   <md-button ng-click="vm.import()" class="md-raised">Importar</md-button>
 </div>
 
