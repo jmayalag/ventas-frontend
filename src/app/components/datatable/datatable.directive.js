@@ -36,12 +36,26 @@
       if (vm.options.export) {
         vm.export = function (format) {
           $log.info("Exportando " + format);
+          $log.info(vm.queryParams);
+
+          var queryString = "?";
+
+          for (var k in vm.queryParams){
+
+            queryString = queryString + k +'='+vm.queryParams[k] + '&';
+
+          }
+
+          queryString = queryString.substr(0,queryString.length-1);
+
+          $log.info(queryString);
+
           //var p = vm.queryParams;
           //delete p['page'];
           //$log.info(p);
           var anchor = angular.element('<a/>');
           anchor.attr({
-            href: 'http://localhost:8080/tareaweb2/export' + vm.options.export
+            href: 'http://localhost:8080/tareaweb2/export' + vm.options.export + queryString
           })[0].click();
         };
       }
