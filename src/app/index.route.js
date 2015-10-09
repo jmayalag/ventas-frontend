@@ -105,6 +105,11 @@
         controller: 'CompraDetailController',
         controllerAs: 'ctl'
       })
+      .when('/factura', {
+        templateUrl: 'app/factura/factura.html',
+        controller: 'FacturaController',
+        controllerAs: 'ctl'
+      })
       //.otherwise({
       //  redirectTo: '/'
       //})
