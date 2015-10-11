@@ -91,7 +91,14 @@
             vm.item.$delete(function () {
               $log.info("Eliminado");
               $location.path(vm.previous);
-            }, function () {
+            }, function (err) {
+              $mdDialog.show(
+                $mdDialog.alert()
+                  .clickOutsideToClose(true)
+                  .title('No se pudieron eliminar')
+                  .content(err)
+                  .ok('Ok')
+              );
               $log.error("Fallo la eliminacion");
             });
           }

@@ -78,7 +78,6 @@
               .clickOutsideToClose(true)
               .title('No se pudieron obtener los datos')
               .content('Intente mas tarde.')
-              .ariaLabel('Alert Dialog Demo')
               .ok('Ok')
           );
           $log.error("Fallo en obtener datos");

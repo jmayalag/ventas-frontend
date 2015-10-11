@@ -7,7 +7,15 @@
   function FacturaController($log, $mdToast, Factura) {
     var vm = this;
 
-    //console.log(new Factura());
+    var showError = function(err, title){
+      $mdDialog.show(
+        $mdDialog.alert()
+          .clickOutsideToClose(true)
+          .title(title? title : "Error al facturar")
+          .content(err)
+          .ok('Ok')
+      );
+    };
 
     var showSimpleToast = function (msg) {
       $mdToast.show(
@@ -25,7 +33,7 @@
         console.log(r);
         showSimpleToast(data.message);
       }, function (err) {
-        console.log(err);
+        showError(err);
       });
 
     };
@@ -37,7 +45,7 @@
         console.log(r);
         showSimpleToast(data.message);
       }, function (err) {
-        console.log(err);
+        showError(err);
       });
     };
 
@@ -48,7 +56,7 @@
         console.log(r);
         showSimpleToast(data.message);
       }, function (err) {
-        console.log(err);
+        showError(err);
       });
     };
   }

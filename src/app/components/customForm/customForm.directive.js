@@ -53,6 +53,13 @@
               $log.info("Guardado");
               $location.path(successUrl(data.id));
             }, function (err) {
+              $mdDialog.show(
+                $mdDialog.alert()
+                  .clickOutsideToClose(true)
+                  .title('No se pudo guardar')
+                  .content(err)
+                  .ok('Ok')
+              );
               $log.error("Error al guardar");
             });
           };
@@ -62,6 +69,13 @@
               $log.info("Updated");
               $location.path(successUrl(data.id));
             }, function (err) {
+              $mdDialog.show(
+                $mdDialog.alert()
+                  .clickOutsideToClose(true)
+                  .title('No se pudo actualizar')
+                  .content(err)
+                  .ok('Ok')
+              );
               $log.error("Error update");
             });
           };
