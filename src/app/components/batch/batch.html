@@ -1,35 +1,4 @@
-<div layout="column" ng-cloak>
-  <md-content class="md-padding">
-    <md-card>
-      <md-toolbar>
-        <div class="md-toolbar-tools">
-          <h2>
-            <span>{{vm.title}}</span>
-          </h2>
-          <span flex></span>
-          <md-button class="md-icon-button" aria-label="More" ng-click="vm.cancel()">
-            <md-icon md-svg-icon="assets/icons/ic_close_white_24px.svg"></md-icon>
-          </md-button>
-        </div>
-      </md-toolbar>
-      <md-card-content>
-        <md-input-container ng-repeat="(k, v) in vm.fields">
-          <label>{{ v }}</label>
-          <input ng-model="vm.item[k]">
-        </md-input-container>
-        <ng-transclude></ng-transclude>
-      </md-card-content>
-      <div class="md-actions" layout="row" layout-align="end center">
-        <md-button class="md-raised" ng-click="vm.cancel()">Cancelar</md-button>
-        <md-button class="md-raised md-primary" ng-click="vm.persist()">Guardar</md-button>
-      </div>
-    </md-card>
-  </md-content>
-</div>
-<h3>Debug</h3>
-<pre>
- entity: {{vm.item}}
-</pre>
-
-
-<a href="http://localhost:8080/tareaweb2/export{{entidad}}?{{query}}">Exportar</a>
+<h1>hola</h1>
+<md-button class="md-primary md-raised" ng-click="showAdvanced($event)" flex flex-md="100">
+  Custom Dialog
+</md-button>

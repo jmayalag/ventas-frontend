@@ -3,7 +3,7 @@
   <input ng-focus="searchFields = {pages: 1}" ng-model="vm.filtering.searchFields['by_all_attributes']" ng-keypress="">
 </md-input-container>
 
-<div class="btn-group btn-group-sm" role="group">
+<div layout="row">
   <md-button ng-click="vm.filtering.filter()" class="md-raised md-primary">Filtrar</md-button>
   <md-button ng-click="vm.reset()" class="md-raised">Resetear</md-button>
   <md-button ng-click="vm.export('json')" class="md-raised" ng-if="vm.options.export">JSON</md-button>

@@ -1,88 +1,56 @@
 (function () {
-  'use strict';
+    'use strict';
 
-  angular
-    .module('ventas')
-    .directive('customForm', customForm);
-
-  /** @ngInject */
-  function customForm() {
-    var directive = {
-      restrict: 'E',
-      transclude: true,
-      templateUrl: 'app/components/customForm/customForm.html',
-      scope: {
-        options: '=',
-        item: '='
-      },
-      controller: CustomFormController,
-      controllerAs: 'vm',
-      bindToController: true
-    };
-
-    return directive;
+    angular
+      .module('ventas')
+      .directive('batch', batch);
 
     /** @ngInject */
-    function CustomFormController($log, $location) {
-      var vm = this;
-      var o = vm.options;
-      var successUrl = function (id) {
-        return o.successPrefix + id;
+    function batch() {
+      var directive = {
+        restrict: 'E',
+        templateUrl: 'app/components/batch/batch.html',
+        scope: {
+          options: '='
+        },
+        controller: BatchController,
+        controllerAs: 'vm',
+        bindToController: true
       };
 
-      vm.title = o.title;
-      vm.fields = o.fields;
-      vm.previous = o.previous;
+      return directive;
 
-      if (!vm.item) {
-        vm.item = {};
-      }
+      /** @ngInject */
+      function BatchController($log, $mdDialog, $scope) {
+        var vm = this;
+        var o = vm.options;
 
-      vm.cancel = o.cancel ? o.cancel : function () {
-        $location.path(vm.previous).replace(); //sin callback
-      };
-
-      if (o.saveItem) {
-        vm.persist = function () { //callback
-          o.saveItem(vm.object);
+        $scope.showAdvanced = function (ev) {
+          $mdDialog.show({
+            controller: DialogController,
+            templateUrl: 'app/components/batch/dialog.tmpl.html',
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose: true
+          })
         };
-      } else { //sin callback
-        if (!o.edit) { //si es creacion
-          vm.persist = function () {
-            vm.item.$save(function (data) {
-              $log.info("Guardado");
-              $location.path(successUrl(data.id));
-            }, function (err) {
-              $mdDialog.show(
-                $mdDialog.alert()
-                  .clickOutsideToClose(true)
-                  .title('No se pudo guardar')
-                  .content(err)
-                  .ok('Ok')
-              );
-              $log.error("Error al guardar");
-            });
+
+        function DialogController($scope, $mdDialog) {
+          $scope.hide = function () {
+            $log.info("hide");
+            $mdDialog.hide();
           };
-        } else {
-          vm.persist = function () {
-            vm.item.$update(function (data) {
-              $log.info("Updated");
-              $location.path(successUrl(data.id));
-            }, function (err) {
-              $mdDialog.show(
-                $mdDialog.alert()
-                  .clickOutsideToClose(true)
-                  .title('No se pudo actualizar')
-                  .content(err)
-                  .ok('Ok')
-              );
-              $log.error("Error update");
-            });
+          $scope.cancel = function () {
+            $log.info("cancel");
+            $mdDialog.cancel();
           };
-        }
+          $scope.answer = function (answer) {
+            $log.info("answer");
+            $mdDialog.hide(answer);
+          };
+        };
       }
     }
-  }
 
-})
+  })
 ();
