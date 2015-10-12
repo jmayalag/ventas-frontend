@@ -6,7 +6,7 @@
     .directive('customForm', customForm);
 
   /** @ngInject */
-  function customForm() {
+  function customForm($mdDialog) {
     var directive = {
       restrict: 'E',
       transclude: true,

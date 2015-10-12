@@ -4,7 +4,7 @@
   angular.module('ventas').controller('CompraController', CompraController);
 
   /** @ngInject */
-  function CompraController($location, Compra) {
+  function CompraController($location) {
     var vm = this;
     vm.options = {
       import: true,

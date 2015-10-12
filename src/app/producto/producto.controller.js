@@ -4,7 +4,7 @@
   angular.module('ventas').controller('ProductoController', ProductoController);
 
   /** @ngInject */
-  function ProductoController($location, Producto) {
+  function ProductoController($location) {
     var vm = this;
     vm.options = {
       export: 'Productos',

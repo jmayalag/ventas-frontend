@@ -10,7 +10,7 @@
     vm.proveedores = Proveedor.all();
 
     vm.selectProveedor = function (p) {
-      vm.entity.proveedor = {id: p ? p.id : null}
+      vm.entity.proveedor = {id: p ? p.id : null};
     };
 
     vm.form_options = {

@@ -21,13 +21,11 @@
     return directive;
 
     /** @ngInject */
-    function ExportController($log, $location, $mdDialog) {
+    function ExportController($log) {
       var vm = this;
-      var o = vm.options;
 
       vm.export = function () {
         $log.info("Exportando");
-        vm.mensaje = 'exportando';
       };
     }
   }

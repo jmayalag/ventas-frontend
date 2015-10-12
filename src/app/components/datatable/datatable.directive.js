@@ -12,7 +12,7 @@
       templateUrl: 'app/components/datatable/datatable.html',
       scope: {
         options: '=',
-        serviceName: '@',
+        serviceName: '@'
       },
       controller: DataTableController,
       controllerAs: 'vm',
@@ -63,7 +63,7 @@
 
       vm.import = function () {
         $log.info("Importando");
-      }
+      };
 
       var getData = function () {
         vm.queryParams.page = vm.current_page;

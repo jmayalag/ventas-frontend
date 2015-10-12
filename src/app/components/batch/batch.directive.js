@@ -21,7 +21,7 @@
     return directive;
 
     /** @ngInject */
-    function BatchController($log, $mdDialog) {
+    function BatchController($log, $mdDialog, $document) {
       var vm = this;
       var service = vm.options.service;
 
@@ -29,10 +29,10 @@
         $mdDialog.show({
           controller: DialogController,
           templateUrl: 'app/components/batch/dialog.tmpl.html',
-          parent: angular.element(document.body),
+          parent: $document.body,
           targetEvent: ev,
           clickOutsideToClose: true
-        })
+        });
       };
 
       function DialogController($scope, $mdDialog) {
@@ -54,7 +54,7 @@
             $log.error(err);
           });
         };
-      };
+      }
     }
   }
 

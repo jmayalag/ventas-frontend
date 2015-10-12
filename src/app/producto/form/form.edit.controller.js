@@ -4,7 +4,7 @@
   angular.module('ventas').controller('ProductoFormEditController', ProductoFormEditController);
 
   /** @ngInject */
-  function ProductoFormEditController($routeParams, Producto, Proveedor) {
+  function ProductoFormEditController($log, $routeParams, Producto, Proveedor) {
     var vm = this;
     var id = $routeParams.id;
     vm.entity = Producto.get({prod_id: id});
@@ -12,13 +12,13 @@
     vm.selected = {};
 
     vm.entity.$promise.then(function (d) {
-      console.log(d.proveedor.nombre);
+      $log.debug(d.proveedor.nombre);
       vm.selected = d.proveedor;
     });
 
     vm.selectProveedor = function (p) {
-      console.log(p);
-      vm.entity.proveedor = {id: p ? p.id : null}
+      $log.debug(p);
+      vm.entity.proveedor = {id: p ? p.id : null};
     };
 
     vm.form_options = {

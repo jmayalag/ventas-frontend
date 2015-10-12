@@ -4,7 +4,7 @@
   angular.module('ventas').controller('ProveedorController', ProveedorController);
 
   /** @ngInject */
-  function ProveedorController($location, Proveedor) {
+  function ProveedorController($location) {
     var vm = this;
     vm.options = {
       export: 'Proveedores',

@@ -4,7 +4,7 @@
   angular.module('ventas').controller('ClienteController', ClienteController);
 
   /** @ngInject */
-  function ClienteController($location, Cliente) {
+  function ClienteController($location) {
     var vm = this;
     vm.options = {
       import: true,
