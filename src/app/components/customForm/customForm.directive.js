@@ -53,11 +53,12 @@
               $log.info("Guardado");
               $location.path(successUrl(data.id));
             }, function (err) {
+              console.log(err);
               $mdDialog.show(
                 $mdDialog.alert()
                   .clickOutsideToClose(true)
                   .title('No se pudo guardar')
-                  .content(err)
+                  .content(err.data.message)
                   .ok('Ok')
               );
               $log.error("Error al guardar");
@@ -73,7 +74,7 @@
                 $mdDialog.alert()
                   .clickOutsideToClose(true)
                   .title('No se pudo actualizar')
-                  .content(err)
+                  .content(err.data.message)
                   .ok('Ok')
               );
               $log.error("Error update");

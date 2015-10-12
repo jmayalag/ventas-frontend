@@ -88,9 +88,10 @@
       vm.pagination = {
         getPages: function () {
           var n = vm.pages;
-          var pages = new Array(10);
           var m = ((vm.current_page - 1) / 10 >> 0) * 10;
-          for (var i = 0; i < 10; i++) {
+          var f = vm.pages >= 10 ? 10 : vm.pages;
+          var pages = new Array(f);
+          for (var i = 0; i < f; i++) {
             pages[i] = m + i + 1;
           }
           return pages;

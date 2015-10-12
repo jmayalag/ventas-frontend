@@ -96,7 +96,7 @@
                 $mdDialog.alert()
                   .clickOutsideToClose(true)
                   .title('No se pudieron eliminar')
-                  .content(err)
+                  .content(err.data.message)
                   .ok('Ok')
               );
               $log.error("Fallo la eliminacion");
