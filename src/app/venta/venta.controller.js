@@ -7,6 +7,7 @@
   function VentaController($location, Venta) {
     var vm = this;
     vm.options = {
+      import: true,
       export: 'Ventas',
       column_defs: {
         id: 'ID',
