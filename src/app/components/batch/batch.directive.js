@@ -1,61 +1,62 @@
 (function () {
-    'use strict';
+  'use strict';
 
-    angular
-      .module('ventas')
-      .directive('batch', batch);
+  angular
+    .module('ventas')
+    .directive('batch', batch);
+
+  /** @ngInject */
+  function batch() {
+    var directive = {
+      restrict: 'E',
+      templateUrl: 'app/components/batch/batch.html',
+      scope: {
+        options: '='
+      },
+      controller: BatchController,
+      controllerAs: 'vm',
+      bindToController: true
+    };
+
+    return directive;
 
     /** @ngInject */
-    function batch() {
-      var directive = {
-        restrict: 'E',
-        templateUrl: 'app/components/batch/batch.html',
-        scope: {
-          options: '='
-        },
-        controller: BatchController,
-        controllerAs: 'vm',
-        bindToController: true
+    function BatchController($log, $mdDialog) {
+      var vm = this;
+      var service = vm.options.service;
+
+      vm.showDialog = function (ev) {
+        $mdDialog.show({
+          controller: DialogController,
+          templateUrl: 'app/components/batch/dialog.tmpl.html',
+          parent: angular.element(document.body),
+          targetEvent: ev,
+          clickOutsideToClose: true
+        })
       };
 
-      return directive;
+      function DialogController($scope, $mdDialog) {
+        $scope.selected = false;
 
-      /** @ngInject */
-      function BatchController($log, $mdDialog, $scope) {
-        var vm = this;
-        var o = vm.options;
-        var service = vm.options.service;
-
-        $scope.showDialog = function (ev) {
-          $mdDialog.show({
-            controller: DialogController,
-            templateUrl: 'app/components/batch/dialog.tmpl.html',
-            parent: angular.element(document.body),
-            targetEvent: ev,
-            clickOutsideToClose: true
-          })
+        $scope.cancel = function () {
+          $log.info("cancel");
+          $mdDialog.cancel();
         };
 
-        function DialogController($scope, $mdDialog) {
-          $scope.hide = function () {
-            $log.info("hide");
-            $mdDialog.hide();
-          };
-          $scope.cancel = function () {
-            $log.info("cancel");
-            $mdDialog.cancel();
-          };
-          $scope.answer = function (answer) {
-            $log.info("answer");
-            $mdDialog.hide(answer);
-          };
-          $scope.upload = function (file){
-            console.log(file);
-            service.batch(file);
-          };
+        $scope.upload = function (file) {
+          $scope.selected = true;
+          $scope.loading = true;
+          $log.info(file);
+          service.batch(file, function (data) {
+            $scope.loading = false;
+            $scope.result = data.message;
+          }, function (err) {
+            $log.error(err);
+          });
         };
-      }
+      };
     }
+  }
 
-  })
+})
 ();

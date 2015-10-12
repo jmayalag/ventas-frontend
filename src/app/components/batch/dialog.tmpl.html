@@ -1,4 +1,4 @@
-<md-dialog aria-label="Importar" ng-cloak>
+<md-dialog aria-label="Importar" ng-cloak flex="80">
   <form>
     <md-toolbar>
       <div class="md-toolbar-tools">
@@ -9,24 +9,32 @@
         </md-button>
       </div>
     </md-toolbar>
-    <md-dialog-content style="max-width:800px;max-height:810px; ">
+    <md-dialog-content>
       <div>
-        <p>
+        <div layout="row" layout-align="center">
           <md-input-container>
-            <label>Archivo</label>
+            <label>Seleccionar archivo</label>
             <input ng-model="file">
           </md-input-container>
-          <md-button ng-click="upload(file)">Cargar</md-button>
-        </p>
+          <md-button class="md-fab" aria-label="Upload" ng-click="upload(file)">
+            <md-icon md-svg-src="assets/icons/ic_file_upload_white_24px.svg"></md-icon>
+          </md-button>
+        </div>
+        <div ng-show="selected">
+          <div layout="row" layout-sm="column" layout-align="space-around" ng-show="loading">
+            <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+          </div>
+          <div ng-hide="loading">
+            <h3 class="text-center">Resultados</h3>
+            <pre>{{result}}</pre>
+          </div>
+        </div>
       </div>
     </md-dialog-content>
     <div class="md-actions" layout="row">
       <span flex></span>
       <md-button ng-click="cancel()">
-        Cancelar
-      </md-button>
-      <md-button ng-click="answer('useful')" style="margin-right:20px;">
-        Importar
+        OK
       </md-button>
     </div>
   </form>

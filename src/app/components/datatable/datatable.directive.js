@@ -25,6 +25,7 @@
     function DataTableController($log, $injector, $mdDialog) {
       var vm = this;
       var service = $injector.get(vm.serviceName);
+      vm.batch_options = {service: service};
       var o = vm.options;
       var sort = {field: 'id', desc: false};
       vm.item_click = o.item_click;
@@ -40,13 +41,13 @@
 
           var queryString = "?";
 
-          for (var k in vm.queryParams){
+          for (var k in vm.queryParams) {
 
-            queryString = queryString + k +'='+vm.queryParams[k] + '&';
+            queryString = queryString + k + '=' + vm.queryParams[k] + '&';
 
           }
 
-          queryString = queryString.substr(0,queryString.length-1);
+          queryString = queryString.substr(0, queryString.length - 1);
 
           $log.info(queryString);
 

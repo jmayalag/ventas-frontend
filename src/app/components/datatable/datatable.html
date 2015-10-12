@@ -7,7 +7,7 @@
   <md-button ng-click="vm.filtering.filter()" class="md-raised md-primary">Filtrar</md-button>
   <md-button ng-click="vm.reset()" class="md-raised">Resetear</md-button>
   <md-button ng-click="vm.export('json')" class="md-raised" ng-if="vm.options.export">JSON</md-button>
-  <md-button ng-click="vm.import()" class="md-raised">Importar</md-button>
+  <batch options="vm.batch_options" ng-if="vm.options.import"></batch>
 </div>
 
 <table class="table table-hover">
