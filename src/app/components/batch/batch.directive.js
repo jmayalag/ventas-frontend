@@ -24,8 +24,9 @@
       function BatchController($log, $mdDialog, $scope) {
         var vm = this;
         var o = vm.options;
+        var service = vm.options.service;
 
-        $scope.showAdvanced = function (ev) {
+        $scope.showDialog = function (ev) {
           $mdDialog.show({
             controller: DialogController,
             templateUrl: 'app/components/batch/dialog.tmpl.html',
@@ -47,6 +48,10 @@
           $scope.answer = function (answer) {
             $log.info("answer");
             $mdDialog.hide(answer);
+          };
+          $scope.upload = function (file){
+            console.log(file);
+            service.batch(file);
           };
         };
       }

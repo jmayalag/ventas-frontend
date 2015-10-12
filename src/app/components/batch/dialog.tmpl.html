@@ -14,9 +14,9 @@
         <p>
           <md-input-container>
             <label>Archivo</label>
-            <input type="file" ng-model="archivo" style="display: none;">
+            <input ng-model="file">
           </md-input-container>
-          {{archivo}}
+          <md-button ng-click="upload(file)">Cargar</md-button>
         </p>
       </div>
     </md-dialog-content>
