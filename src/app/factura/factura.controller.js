@@ -67,10 +67,11 @@
     };
 
     vm.stop = function () {
-      vm.progress = false;
       $log.info("Deteniendo facturacion");
       Factura.stop(function (data) {
         $log.debug(data);
+        vm.progress = false;
+        $interval.cancel(interval);
         showSimpleToast(data.message);
       }, function (err) {
         showError(err);

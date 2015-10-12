@@ -3,7 +3,7 @@
 <div>
   <md-button ng-disabled="ctl.progress" ng-click="ctl.start()" class="md-raised md-primary">Iniciar</md-button>
   <md-button ng-click="ctl.status()" class="md-raised md-primary">Estado</md-button>
-  <md-button ng-disabled="!ctl.progress" class="md-raised md-primary">Cancelar</md-button>
+  <md-button ng-disabled="!ctl.progress" ng-click="ctl.stop()" class="md-raised md-primary">Cancelar</md-button>
 </div>
 
 <div layout="row" layout-sm="column" layout-align="space-around" ng-show="ctl.progress">
