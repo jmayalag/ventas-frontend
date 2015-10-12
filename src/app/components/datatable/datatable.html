@@ -39,8 +39,8 @@
       </a>
     </li>
 
-    <li ng-repeat="p in vm.pagination.getPages() track by $index" ng-class="{active: vm.current_page == $index+1}">
-      <a href ng-click="vm.pagination.changePage($index+1)">{{$index+1}}</a>
+    <li ng-repeat="p in vm.pagination.getPages()" ng-class="{active: vm.current_page == p}">
+      <a href ng-click="vm.pagination.changePage(p)">{{p}}</a>
     </li>
     <li ng-class="{disabled: vm.current_page == vm.pages}">
       <a href ng-click="vm.pagination.next()" aria-label="Next">
@@ -49,3 +49,8 @@
     </li>
   </ul>
 </nav>
+
+<pre>
+  {{vm.pagination.getPages()}}
+  CurrentPage: {{vm.current_page}}
+</pre>
