@@ -44,16 +44,19 @@
         };
 
         $scope.upload = function (file) {
-          $scope.selected = true;
-          $scope.loading = true;
-          $log.info(file);
-          service.batch(file, function (data) {
-            $scope.loading = false;
-            $scope.result = data.message;
-          }, function (err) {
-            $log.error(err);
-          });
+          if (file) {
+            $scope.selected = true;
+            $scope.loading = true;
+            $log.info(file);
+            service.batch(file, function (data) {
+              $scope.loading = false;
+              $scope.result = data.message;
+            }, function (err) {
+              $log.error(err);
+            });
+          }
         };
+
       }
     }
   }
