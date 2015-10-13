@@ -41,9 +41,11 @@
 
     vm.deleteDetalle = function (d) {
       $log.debug("del");
-      var index = vm.entity.detalles.indexOf(d);
-      if (index !== -1) {
-        vm.entity.detalles.splice(index, 1);
+      if (vm.entity.detalles.length > 1) {
+        var index = vm.entity.detalles.indexOf(d);
+        if (index !== -1) {
+          vm.entity.detalles.splice(index, 1);
+        }
       }
     };
   }
