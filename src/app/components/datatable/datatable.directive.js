@@ -25,7 +25,7 @@
     function DataTableController($log, $injector, $mdDialog) {
       var vm = this;
       var service = $injector.get(vm.serviceName);
-      vm.batch_options = {service: service};
+      vm.batch_options = {uploadUrl: vm.options.import};
       var o = vm.options;
       var sort = {field: 'id', desc: false};
       vm.item_click = o.item_click;
