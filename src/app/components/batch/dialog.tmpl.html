@@ -14,10 +14,21 @@
         <div layout="row" layout-align="center">
           <md-input-container>
             <label>Seleccionar archivo</label>
-            <input required ng-model="file">
+            <input disabled ng-model="file.name">
           </md-input-container>
-          <md-button class="md-fab" aria-label="Upload" ng-click="upload(file)">
+          <md-button class="md-fab md-primary" aria-label="Browse"
+                     ngf-select ng-model="file" name="file" ngf-max-size="20MB"
+                     ngf-pattern="'application/json'" accept="application/json">
+            <md-icon md-svg-src="assets/icons/ic_folder_open_white_24px.svg"></md-icon>
+            <md-tooltip>
+              Buscar...
+            </md-tooltip>
+          </md-button>
+          <md-button class="md-fab" aria-label="Upload" ng-click="submit()">
             <md-icon md-svg-src="assets/icons/ic_file_upload_white_24px.svg"></md-icon>
+            <md-tooltip>
+              Subir
+            </md-tooltip>
           </md-button>
         </div>
         <div ng-show="selected">
