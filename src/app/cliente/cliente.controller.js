@@ -7,7 +7,7 @@
   function ClienteController($location) {
     var vm = this;
     vm.options = {
-      import: true,
+      import: 'http://localhost:8080/tareaweb2/rest/clientes/upload',
       export: 'Clientes',
       column_defs: {
         id: 'ID',

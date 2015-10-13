@@ -7,7 +7,7 @@
   function CompraController($location) {
     var vm = this;
     vm.options = {
-      import: true,
+      import: 'http://localhost:8080/tareaweb2/rest/compras/upload',
       export: 'Compras',
       column_defs: {
         id: 'ID',

@@ -7,7 +7,7 @@
   function VentaController($location) {
     var vm = this;
     vm.options = {
-      import: true,
+      import: 'http://localhost:8080/tareaweb2/rest/ventas/upload',
       export: 'Ventas',
       column_defs: {
         id: 'ID',
