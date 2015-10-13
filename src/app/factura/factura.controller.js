@@ -24,6 +24,8 @@
       });
     };
 
+    vm.progress = true;
+    interval = $interval(checkStatus, 250, false);
 
     var showError = function (err, title) {
       $mdDialog.show(
@@ -53,7 +55,7 @@
       }, function (err) {
         showError(err);
       });
-      interval = $interval(checkStatus, 500, false);
+      interval = $interval(checkStatus, 1000, false);
     };
 
     vm.status = function () {
